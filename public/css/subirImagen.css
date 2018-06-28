@@ -1,0 +1,8 @@
+#imagePreview {
+    width: 100px;
+    height: 100px;
+    background-position: absolute;
+    background-size: cover;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+    display: inline-block;
+}
