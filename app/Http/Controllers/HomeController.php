@@ -54,10 +54,12 @@ class HomeController extends Controller
 
          */
         $model = LugarTuristico::find($id);
+        $fotoLugares = $model->getMedia('thumbnail');
         Mapper::streetview($model->latitud, $model->longitud, 1, 1);
 
 
         return view('show')->with(['model'=>$model,'yourVar' => $yourVar,
+                'fotoLugares' => $fotoLugares,
                 'contadoractive' => $contadoractive,'contador'=> $contador,
 
             ]);

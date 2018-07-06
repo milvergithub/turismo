@@ -19,7 +19,7 @@
                     <div class="form-group" style="width: 100%; height: 500px;">
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
-                                @foreach($model->fotosLugares as $fotolugares)
+                                @foreach($fotoLugares as $fotolugar)
                                     <li data-target="#carousel-example-generic" data-slide-to="{{$contador}}"
                                         class="{{$contadoractive}}"></li>
                                     {{ $contadoractive = '' }}
@@ -28,9 +28,9 @@
 
                             </ol>
                             <div class="carousel-inner" role="listbox">
-                                @foreach($model->fotosLugares as $fotolugares)
+                                @foreach($fotoLugares as $fotolugar)
                                     <div class="item {{ $yourVar }}">
-                                        <img src="{{$fotolugares->Foto->getFotoPathShow()}}" alt="...">
+                                        <img src="{{$fotolugar->getUrl()}}" alt="...">
                                         <div class="carousel-caption">
                                         </div>
                                     </div>

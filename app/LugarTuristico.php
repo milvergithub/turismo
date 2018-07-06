@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Plank\Mediable\Mediable;
 
 class LugarTuristico extends Model
 {
+    use Mediable;
     /**
      * The attributes that are mass assignable.
      *

@@ -19,6 +19,7 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4.0",
         "laraveles/spanish": "^1.0",
+        "plank/laravel-mediable": "^2.7",
         "yajra/laravel-datatables-oracle": "^8.4",
         "zizaco/entrust": "^1.9"
     },

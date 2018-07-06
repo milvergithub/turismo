@@ -8,6 +8,7 @@ use App\Http\Requests\BlogRequest;
 use App\User;
 use App\Fotos;
 use Illuminate\Http\Request;
+use MediaUploader;
 
 class BlogController extends Controller
 {
@@ -46,26 +47,10 @@ class BlogController extends Controller
         $blog->usuario_id = User::getCurrentSession()->id;
         $blog->fecha = date('Y-m-d');
           if( $blog ->save()) {
-
-              $path = public_path() . '/uploads/';
               $files = $request->file('file');
               foreach ($files as $file) {
-                  $fileName = time() . $file->getClientOriginalName();
-                  $extension = $file->getClientOriginalExtension();
-                  if ($file->move($path, $fileName)) {
-
-                      $image = new Fotos();
-                      $image->nombre = $fileName;
-                      $image->ruta = $fileName;
-                      $image->extencion = $extension;
-                      if ($image->save()) {
-                          $fotos_blog = new FotosBlog();
-                          $fotos_blog->foto_id = $image->id;
-                          $fotos_blog ->blog_id = $blog->id;
-
-                          $fotos_blog->save();
-                      }
-                  }
+                  $media = MediaUploader::fromSource($file)->useHashForFilename()->upload();
+                  $blog->attachMedia($media, 'foto-blog');
               }
 
           }

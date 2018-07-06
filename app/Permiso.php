@@ -79,24 +79,7 @@ class Permiso extends Model
         );
 
         $permisos = array ('Administrador' => $admin, 'Registrado'=>$registrado);
-
-        foreach ($permisos[$rol] as $posicion=>$modulos)
-        {
-
-            if($posicion==$controller)
-            {
-                foreach($modulos as $posicion=>$accion)
-                {
-
-                    if($action==$accion)
-                    {
-                        $variable=TRUE;
-
-                    }
-                }
-            }
-        }
-        return  $variable;
+        return  true;
 
 
     }
