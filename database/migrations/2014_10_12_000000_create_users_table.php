@@ -21,8 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->string('contrasenia');
             $table->string('genero')->nullable();
-            $table->string('rol');
-            $table->string('estado');
+            $table->string('estado')->nullable();
             $table->text('descripcion')->nullable();
 
             $table->rememberToken();

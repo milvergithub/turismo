@@ -5,9 +5,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
+
 class User extends Authenticatable
 {
     use Notifiable;
+    use EntrustUserTrait;
 
   const ROL_ADMINISTRADOR = 'Administrador';
   const ROL_REGISTRADO    = 'Registrado';
@@ -24,8 +27,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nombre_usuario', 'email', 'contrasenia','apellido_paterno','apellido_materno','genero',
-        'rol','estado','descripcion'
+        'nombre_usuario', 'email', 'contrasenia','apellido_paterno','apellido_materno','genero','estado','descripcion'
     ];
 
     /**
