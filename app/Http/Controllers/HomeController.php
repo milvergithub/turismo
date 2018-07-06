@@ -31,8 +31,8 @@ class HomeController extends Controller
     {
         $model  = LugarTuristico::all()->first();
         $yourVar = 'active';
-         $contadoractive = 'active' ;
-         $contador = 0 ;
+        $contadoractive = 'active' ;
+        $contador = 0 ;
         return view('home')->with(['model'=>$model,'yourVar' => $yourVar, 'contadoractive' => $contadoractive,'contador'=> $contador ]);
     }
 

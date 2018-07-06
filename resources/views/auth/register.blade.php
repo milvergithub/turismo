@@ -10,10 +10,10 @@
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
-
                         <div class="form-group{{ $errors->has('nombre_usuario') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">@lang('usuario.name')</label>
-
+                            <label for="name" class="col-md-4 control-label">
+                                @lang('messages.register.name')
+                            </label>
                             <div class="col-md-6">
                                 <input id="nombre_usuario" type="text" class="form-control" name="nombre_usuario" value="{{ old('nombre_usuario') }}" required autofocus>
 
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">@lang('usuario.email')</label>
+                            <label for="email" class="col-md-4 control-label">@lang('messages.register.email')</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('contrasenia') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">@lang('usuario.password')</label>
+                            <label for="password" class="col-md-4 control-label">@lang('messages.register.password')</label>
 
                             <div class="col-md-6">
                                 <input id="contrasenia" type="password" class="form-control" name="contrasenia" required>
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">@lang('usuario.confirmpassword')</label>
+                            <label for="password-confirm" class="col-md-4 control-label">@lang('messages.register.comfirm')</label>
 
                             <div class="col-md-6">
                                 <input id="contrasenia-confirm" type="password" class="form-control" name="contrasenia_confirmation" required>
@@ -64,7 +64,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    @lang('usuario.send')
+                                    @lang('messages.register.register')
                                 </button>
                             </div>
                         </div>
