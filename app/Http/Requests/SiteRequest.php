@@ -24,8 +24,8 @@ class SiteRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre_usuario' => 'required|string|max:255|unique:usuarios',
-            'email' => 'required|string|email|max:255|unique:usuarios',
+            'nombre_usuario' => 'required|string|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:users',
             'contrasenia' => 'required|string|min:6|confirmed',
         ];
     }

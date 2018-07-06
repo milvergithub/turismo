@@ -17,7 +17,7 @@ class User extends Authenticatable
   const MUJER = "Mujer";
   const HOMBRE = "Hombre";
 
-    protected $table = 'usuarios';
+    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *

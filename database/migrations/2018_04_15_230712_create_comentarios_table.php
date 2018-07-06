@@ -28,7 +28,7 @@ class CreateComentariosTable extends Migration
 
 
             $table->foreign('usuario_id')
-                ->references('id')->on('usuarios')
+                ->references('id')->on('users')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
 

@@ -51,8 +51,8 @@ class UserRequest extends FormRequest
             case 'PATCH':
                 {
                     return [
-                          'nombre_usuario' => 'required|string|max:255|unique:usuarios,nombre_usuario,'.$this->route->parameter('usuario'),
-                           'email' => 'required|string|email|max:255|unique:usuarios,email,'.$this->route->parameter('usuario')
+                          'nombre_usuario' => 'required|string|max:255|unique:users,nombre_usuario,'.$this->route->parameter('usuario'),
+                           'email' => 'required|string|email|max:255|unique:users,email,'.$this->route->parameter('usuario')
                     ];
                 }
             default:break;
