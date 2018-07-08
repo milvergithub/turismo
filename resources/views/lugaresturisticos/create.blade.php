@@ -37,7 +37,7 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <input id="pac-input" class="controls" type="text"
+                        <input id="pac-input" class="form-control" type="text"
                                placeholder="Buscar Direcciones">
 
                     </div>

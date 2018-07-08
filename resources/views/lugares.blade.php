@@ -15,7 +15,9 @@
                             <a href="{{ route('show', $lugares->id) }}" class="btn btn-primary btn-sm active" ><i ></i>@lang('place.showmore')</a>
                         </div>
                         <div class="col-md-7 service-grid1">
-                            <img src="{{$lugares->fotoPrimero()}}" class="img-responsive gray" alt=""/>
+                            @if($lugares->firstMedia($lugares::TAG_PICTURE))
+                                <img src="{{$lugares->firstMedia($lugares::TAG_PICTURE)->getUrl()}}" class="img-responsive gray" alt=""/>
+                            @endif
                         </div>
                         <div class="clearfix"></div>
                     </div>

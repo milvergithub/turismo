@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
-use App\FotosBlog;
 use App\Http\Requests\BlogRequest;
 use App\User;
-use App\Fotos;
 use Illuminate\Http\Request;
 use MediaUploader;
 

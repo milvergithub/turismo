@@ -1,15 +1,17 @@
 <ul>
-    <li><a href="{{ url('lang', ['en']) }}" class="color-texto" >En</a></li>
-    <li><a href="{{ url('lang', ['es']) }}" class="color-texto" >Es</a></li>
+    <li><a href="{{ url('lang', ['en']) }}" class="color-texto">En</a></li>
+    <li><a href="{{ url('lang', ['es']) }}" class="color-texto">Es</a></li>
     @guest
 
         <li><a href="{{ route('login') }}" class="color-texto">@lang('home.login')</a></li>
         <li><a href="{{ route('register') }}" class="color-texto">@lang('home.register')</a></li>
     @else
+        @role('admin')
             <li><a href="{{ route('usuario.index') }}" class="color-texto">@lang('home.administrator')</a></li>
-
+        @endrole
         <li class="dropdown ">
-            <a href="#" class="dropdown-toggle color-texto" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+            <a href="#" class="dropdown-toggle color-texto" data-toggle="dropdown" role="button" aria-expanded="false"
+               aria-haspopup="true" v-pre>
                 {{ Auth::user()->nombre_usuario }} <span class="caret"></span>
             </a>
 

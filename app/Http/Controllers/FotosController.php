@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Fotos;
-use App\FotosLugares;
 use App\LugarTuristico;
 use Illuminate\Http\Request;
 use MediaUploader;
@@ -28,9 +26,7 @@ class FotosController extends Controller
     public function create(Request $request)
     {
         $id_lugaresturisticos = $request->request->get('id');
-        $model = new Fotos();
-
-        return view('fotos.create')->with(['model' => $model, 'id_lugar' => $id_lugaresturisticos]);
+        return view('fotos.create')->with(['id_lugar' => $id_lugaresturisticos]);
     }
 
     /**

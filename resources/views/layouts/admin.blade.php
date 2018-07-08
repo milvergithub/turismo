@@ -44,7 +44,7 @@
                     <h1><a href="index.html">@lang('home.title')</a></h1>
                 </div>
                 <div class="navigation-right">
-                    <span class="menu"><img src="images/menu.png" alt=" "/></span>
+                    <span class="menu"><img src="{{asset('images/menu.png')}}" alt=" "/></span>
                     <nav class="link-effect-3" id="link-effect-3">
                         @include('layouts.submenu')
                     </nav>

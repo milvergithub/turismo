@@ -15,20 +15,8 @@ class LugarTuristico extends Model
      */
     const ESTADO_ACTIVO= 'Activo';
     const ESTADO_INACTIVO = 'Inactivo';
+    const TAG_PICTURE = 'foto-lugares';
     protected $fillable = [
         'nombre', 'latitud', 'longitud','descripcion','estado'
     ];
-
-    public   function  fotosLugares()
-    {
-        return $this->hasMany('App\FotosLugares','lugares_id');
-    }
-    public   function  fotoPrimero()
-    {
-        $photo = $this->fotosLugares()->first();
-        if (!empty($photo)) {
-            return $photo->foto->getFotoPath();
-        }
-        return null;
-    }
 }

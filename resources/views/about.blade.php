@@ -18,9 +18,6 @@
                             <!-- item 2 -->
                                 <div class="list-item box">
                                     <!-- img -->
-                                    <div class="img">
-                                        <img src="img/thumbs/arch-2.jpg" alt="" title=""/>
-                                    </div>
 
                                     <!-- data -->
                                     <div class="block">
@@ -38,9 +35,6 @@
                                 <!-- item 3 -->
                                 <div class="list-item box">
                                     <!-- img -->
-                                    <div class="img">
-                                        <img src="img/thumbs/autumn-1.jpg" alt="" title=""/>
-                                    </div>
 
                                     <!-- data -->
                                     <div class="block">
@@ -60,9 +54,6 @@
                                 <!-- item 4 -->
                                 <div class="list-item box">
                                     <!-- img -->
-                                    <div class="img">
-                                        <img src="img/thumbs/boats-1.jpg" alt="" title=""/>
-                                    </div>
 
                                     <!-- data -->
                                     <div class="block">

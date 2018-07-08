@@ -11,7 +11,7 @@
                     <div class="jumbotron how-to-create" >
 
 
-                        {!! Form::open(['route'=>  [ 'fotos.store',$model ], 'method' => 'POST', 'files'=>'true', 'id' => 'my-dropzone' , 'class' => 'dropzone']) !!}
+                        {!! Form::open(['route'=>  [ 'fotos.store',null ], 'method' => 'POST', 'files'=>'true', 'id' => 'my-dropzone' , 'class' => 'dropzone']) !!}
                         <div class="dz-message" style="height:200px;">
                             Suelta tus archivos aquí
                         </div>

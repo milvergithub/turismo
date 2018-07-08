@@ -15,7 +15,6 @@
                             <th>Apellido Paterno</th>
                             <th>Genero</th>
                             <th>Email</th>
-                            <th>Rol</th>
                             <th>Fecha de Registro</th>
                             <th>Accion</th>
                         </tr>
@@ -43,7 +42,6 @@
                     { data: 'apellido_paterno', name: 'apellido_paterno' },
                     { data: 'genero', name: 'genero' },
                     { data: 'email', name: 'email' },
-                    { data: 'rol', name: 'rol' },
                     { data: 'created_at', name: 'created_at' },
                     {data: 'action', name: 'action', orderable: false, searchable: false}
                 ]

@@ -48,13 +48,8 @@ class HomeController extends Controller
         $yourVar = 'active';
         $contadoractive = 'active' ;
         $contador = 0 ;
-        /**
-         *
-        return view('home')->with(['model'=>$model,'yourVar' => $yourVar, 'contadoractive' => $contadoractive,'contador'=> $contador ]);
-
-         */
         $model = LugarTuristico::find($id);
-        $fotoLugares = $model->getMedia('thumbnail');
+        $fotoLugares = $model->getMedia('foto-lugares');
         Mapper::streetview($model->latitud, $model->longitud, 1, 1);
 
 
