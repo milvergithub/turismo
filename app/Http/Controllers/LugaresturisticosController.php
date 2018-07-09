@@ -38,15 +38,10 @@ class LugaresturisticosController extends Controller
                 return
 
                     // edit
-                    '<a href="'. route('lugaresturisticos.edit', $lugar->id) .'" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>'.
+                    '<a href="'. route('lugaresturisticos.edit', $lugar->id) .'" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a> '.
 
-                    '<a href="'. route('lugaresturisticos.show', $lugar->id) .'" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Agregar Fotos"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Mostrar</a>'.
-                    '<a href="'. route('fotos.create',['id' => $lugar->id ]) .'" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Agregar Fotos"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Agregar Fotos</a>'.
-
-                    // delete
-                    \Form::open(['route' => ['lugaresturisticos.destroy', $lugar->id], 'method' => 'PUT', 'class' => 'form-inline']).
-                    '<button type="submit" class="btn btn-sm btn-danger btn-lixeira" data-id="'.$lugar->id.'" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-trash-o" aria-hidden="true"> Eliminar</i></button>'.
-                    \Form::close()
+                    '<a href="'. route('lugaresturisticos.show', $lugar->id) .'" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Agregar Fotos"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Mostrar</a> '.
+                    '<a href="'. route('fotos.create',['id' => $lugar->id ]) .'" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Agregar Fotos"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Agregar Fotos</a> '
                  ;     })
             ->make(true);
     }
@@ -121,10 +116,16 @@ class LugaresturisticosController extends Controller
 
          */
         $model = LugarTuristico::find($id);
+        $fotos = $model->getMedia(LugarTuristico::TAG_PICTURE);
         Mapper::streetview($model->latitud, $model->longitud, 1, 1);
 
 
-        return view('lugaresturisticos.show')->with(['model'=>$model,'yourVar' => $yourVar, 'contadoractive' => $contadoractive,'contador'=> $contador]);
+        return view('lugaresturisticos.show')
+            ->with(['model'=>$model,
+                'yourVar' => $yourVar,
+                'fotos' => $fotos,
+                'contadoractive' => $contadoractive,
+                'contador'=> $contador]);
     }
 
     /**

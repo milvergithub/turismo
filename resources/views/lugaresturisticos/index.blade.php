@@ -11,10 +11,10 @@
                     <table class="table table-bordered" id="lugar-table">
                         <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Nombre</th>
-                            <th>Descripcion</th>
-                            <th>Accion</th>
+                            <th width="5%" data-priority="0">Id</th>
+                            <th width="30%" data-priority="1">Nombre</th>
+                            <th width="35%" data-priority="3">Descripcion</th>
+                            <th width="30%" data-priority="1">Accion</th>
                         </tr>
                         </thead>
                     </table>
@@ -28,6 +28,7 @@
     <script>
         $(function() {
             $('#lugar-table').DataTable({
+                responsive: true,
                 processing: true,
                 serverSide: true,
                 language: {

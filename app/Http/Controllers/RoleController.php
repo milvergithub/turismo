@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\LugarTuristico;
+use App\Permission;
+use App\Role;
 use Illuminate\Http\Request;
-use MediaUploader;
 
-class FotosController extends Controller
+class RoleController extends Controller
 {
+    //
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +17,8 @@ class FotosController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Role::all();
+        return view('role.index')->with(['roles' => $roles]);
     }
 
     /**
@@ -25,8 +28,7 @@ class FotosController extends Controller
      */
     public function create(Request $request)
     {
-        $id_lugaresturisticos = $request->request->get('id');
-        return view('fotos.create')->with(['id_lugar' => $id_lugaresturisticos]);
+
     }
 
     /**
@@ -38,13 +40,6 @@ class FotosController extends Controller
     public function store(Request $request)
     {
 
-        $idLugar = $request->request->get('id_lugar');
-        $lugarTuristico = LugarTuristico::find($idLugar);
-        $files = $request->file('file');
-        foreach ($files as $file) {
-            $media = MediaUploader::fromSource($file)->useHashForFilename()->upload();
-            $lugarTuristico->attachMedia($media, LugarTuristico::TAG_PICTURE);
-        }
         return redirect()->route('lugaresturisticos.index');
     }
 
@@ -67,7 +62,17 @@ class FotosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $role = Role::find($id);
+        $permisions = Permission::all();
+        $permissionByRole = Role::getPermissionsByRole($role->id);
+        foreach ($permissionByRole as $permissionRole) {
+            foreach ($permisions as $permision) {
+                if ($permissionRole->id === $permision->id) {
+                        $permision->selected = true;
+                }
+            }
+        }
+        return view("role.edit")->with(['role' => $role, 'permissions' => $permisions]);
     }
 
     /**
@@ -79,7 +84,17 @@ class FotosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $role = Role::find($id);
+        $role->fill($request->all());
+        $role->save();
+        $permissions = [];
+        if (!empty($request->get("permission"))) {
+            foreach ($request->get("permission") as $item) {
+                array_push($permissions, $item);
+            }
+        }
+        $role->perms()->sync($permissions);
+        return redirect()->route('roles.index');
     }
 
     /**

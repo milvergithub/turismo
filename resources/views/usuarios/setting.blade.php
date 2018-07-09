@@ -21,7 +21,7 @@
 
                     <div class="form-group">
                         {!!  Form::label('Apellidos','Apellido Paterno ') !!}
-                        {!! Form::text('apellido_paterno',$model->apellidos, ['class'=>'form-control','placeholder'=>'Apellido paterno']) !!}
+                        {!! Form::text('apellido_paterno',$model->apellido_paterno, ['class'=>'form-control','placeholder'=>'Apellido paterno']) !!}
 
                     </div>
 
@@ -47,16 +47,6 @@
                         }}
                     </div>
 
-                    <div  class="form-group">
-                        {{ Form::label('Rol', 'Rol') }}
-                        {{ Form::select('rol', \App\User::getRoles(),$model->rol,
-                            array(  'class' => 'chosen-select form-control',
-                                    'data-placeholder' => 'Selecciona...',
-                                    'tabindex' => '2',
-                                    'id'=>'rol_id'
-                            ))
-                        }}
-                    </div>
                     <div class="form-group">
 
                         {!! Form::submit('Registrar',['class' => 'btn btn-primary']) !!}

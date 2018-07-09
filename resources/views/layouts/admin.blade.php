@@ -16,19 +16,23 @@
     <link href='//fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,300,200' rel='stylesheet' type='text/css'>
 
 
-    <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/responsive.bootstrap.min.css') }}" rel="stylesheet">
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/funtion.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('js/responsive.bootstrap.min.js') }}"></script>
     <!---->
     <link href="{{ asset('/dropzone/dropzone.css') }}" rel="stylesheet">
     <script src="{{ asset('/dropzone/dropzone.js') }}"></script>
 </head>
 <body>
 <script src="{{ asset('js/jquery.vide.min.js') }}"></script>
-<div data-vide-bg="video/tr">
-    <div class="banner">
+<div>
+    <div class="">
         <div class="header-top">
             <div class="container">
                 <div class="detail">
@@ -88,6 +92,9 @@
                             <li><a href="{{ route('usuario.index') }}">@lang('home.users') <span
                                             class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
                             </li>
+                            <li><a href="{{ route('roles.index') }}">@lang('home.roles') <span
+                                            class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+                            </li>
 
                             <li><a href="{{ route('lugaresturisticos.index') }}">@lang('home.touristPlaces')<span
                                             style="font-size:16px;"
@@ -96,7 +103,8 @@
                             <li>
                                 <a href="{{ route('blog.index') }}">
                                     @lang('home.blog')
-                                    <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span>
+                                    <span style="font-size:16px;"
+                                          class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span>
                                 </a>
                             </li>
                         </ul>

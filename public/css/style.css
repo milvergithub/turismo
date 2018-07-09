@@ -534,6 +534,11 @@ a.button1 {
     background: #012231;
     text-align: center;
 }
+.copy-section.footer-section{
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
+}
 .copy-section p {
     font-size: 0.9em;
     color: #fff;
@@ -1952,3 +1957,5 @@ section{
     font-size: 16px;
     color: red;
 }
+
+

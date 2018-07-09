@@ -38,16 +38,16 @@ Route::get('/blogs', 'HomeController@blog')->name('blogs');
 Route::group(['middleware' =>[ 'auth']], function() {
     Route::resource('blog', 'BlogController');
     Route::get('setting', [ 'as' => 'setting', 'uses' => 'UsuariosController@setting']);
-   // Route::get('usuarios', [ 'as' => 'usuarios', 'uses' => 'UsuariosController@index']);
     Route::resource('comentario','ComentarioController');
 });
 
-Route::group(['middleware' =>[ 'auth','permiso']], function() {
+Route::group(['middleware' =>[ 'auth', 'role:admin']], function() {
     Route::resource('admin', 'AdministrarController');
     Route::resource('lugaresturisticos','LugaresturisticosController');
     Route::resource('usuario','UsuariosController');
-
+    Route::resource('roles','RoleController');
 });
+
 Route::resource('fotos', 'FotosController');
 //Route::resource('blog', 'BlogController');
 Route::post('comentarioajax', [ 'as' => 'comentarioajax', 'uses' => 'ComentarioController@insertajax']);

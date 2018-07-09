@@ -15,7 +15,7 @@
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
-                                @foreach($model->fotosBlog as $fotoblog)
+                                @foreach($model->getMedia($model::TAG_PICTURE) as $fotoblog)
                                     <li data-target="#carousel-example-generic" data-slide-to="{{$contador}}" class="{{$contadoractive}}"></li>
                                     {{ $contadoractive = '' }}
                                     {{ $contador ++ }}
@@ -25,9 +25,9 @@
 
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner" role="listbox">
-                                @foreach($model->fotosBlog as $fotoblog)
+                                @foreach($model->getMedia($model::TAG_PICTURE) as $fotoblog)
                                     <div class="item {{ $yourVar }}">
-                                        <img src="{{$fotoblog->Foto->getFotoPathShow()}}" alt="...">
+                                        <img src="{{$fotoblog->getUrl()}}" alt="...">
                                         <div class="carousel-caption">
                                             ...
                                         </div>

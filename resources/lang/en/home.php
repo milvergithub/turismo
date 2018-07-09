@@ -13,6 +13,7 @@ return [
     'administrator' => 'Administrator',
     'setting' => 'Setting Account',
     'users'  => 'Users',
+    'roles'  => 'Roles',
     'touristPlaces' => 'Tourist places',
 
 ];

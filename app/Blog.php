@@ -12,6 +12,7 @@ class Blog extends Model
     protected $fillable = [
         'nombre', 'descripcion', 'fecha','usuario_id'
     ];
+    const TAG_PICTURE = 'foto-blog';
     //
     public   function  comentarios()
     {

@@ -12,25 +12,18 @@
                         {{$model->nombre}}
                     </div>
                     <div class="form-group">
-                        <div style="width: 100%; height: 500px;">
-                            {!! Mapper::render() !!}
-                        </div>
-                    </div>
-                    <div class="form-group" style="width: 100%; height: 500px;">
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 @foreach($fotoLugares as $fotolugar)
                                     <li data-target="#carousel-example-generic" data-slide-to="{{$contador}}"
                                         class="{{$contadoractive}}"></li>
-                                    {{ $contadoractive = '' }}
-                                    {{ $contador ++ }}
                                 @endforeach
 
                             </ol>
                             <div class="carousel-inner" role="listbox">
                                 @foreach($fotoLugares as $fotolugar)
                                     <div class="item {{ $yourVar }}">
-                                        <img src="{{$fotolugar->getUrl()}}" alt="...">
+                                        <img src="{{$fotolugar->getUrl()}}" class="img img-responsive" width="100%" alt="...">
                                         <div class="carousel-caption">
                                         </div>
                                     </div>
@@ -48,6 +41,11 @@
                                 <span class="sr-only">Next</span>
                             </a>
 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div style="width: 100%; height: 500px;">
+                            {!! Mapper::render() !!}
                         </div>
                     </div>
                     <div class="form-group{{  $errors->first('descripcion') ? ' has-error' : '' }}">

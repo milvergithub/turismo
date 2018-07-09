@@ -20,7 +20,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Apellido Paterno</label>
                         <div class="col-sm-7">
-                            {!! Form::text('apellido_paterno',$model->apellidos, ['class'=>'form-control','placeholder'=>'Apellido paterno']) !!}
+                            {!! Form::text('apellido_paterno',$model->apellido_paterno, ['class'=>'form-control','placeholder'=>'Apellido paterno']) !!}
                         </div>
                     </div>
                     <div class="form-group{{  $errors->first('email') ? ' has-error' : '' }}">
@@ -47,15 +47,19 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Rol</label>
+                        <label class="col-sm-3 control-label">Roles</label>
                         <div class="col-sm-7">
-                            {{ Form::select('rol', \App\User::getRoles(),$model->rol,
-                            array(  'class' => 'chosen-select form-control',
-                                    'data-placeholder' => 'Selecciona...',
-                                    'tabindex' => '2',
-                                    'id'=>'rol_id'
-                            ))
-                        }}
+                            @foreach($rolesAssigned as $role)
+                                <div class="checkbox">
+                                    <label>
+                                        @if($role->selected)
+                                            <input type="checkbox" name="roles[]" value="{{$role->id}}" checked>{{$role->display_name}}
+                                        @else
+                                            <input type="checkbox" name="roles[]" value="{{$role->id}}">{{$role->display_name}}
+                                        @endif
+                                    </label>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="form-group">

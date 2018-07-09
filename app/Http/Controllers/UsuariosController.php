@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use Illuminate\Http\Request;
 
 use Yajra\Datatables\Datatables;
@@ -49,9 +50,19 @@ class UsuariosController extends Controller
     }
     public function edit($id)
     {
-        $model = User::find($id);
-
-        return view('usuarios.edit')->with('model',$model);
+        $user = User::find($id);
+        $rolesUser = User::getRolesAsigandos($user->id);
+        $roles = Role::all();
+        foreach ($rolesUser as $roleUser) {
+            foreach ($roles as $role) {
+                if ($roleUser->id === $role->id) {
+                    $role->selected = true;
+                }
+            }
+        }
+        return view('usuarios.edit')
+            ->with(['model' => $user,
+                'rolesAssigned' => $roles]);
 
     }
     public function update(UserRequest $request, $id)
@@ -59,6 +70,13 @@ class UsuariosController extends Controller
         $user = User::findOrFail($id);
         $user->fill($request->all());
         $user->save();
+        $roles = [];
+        if (!empty($request->get("roles"))) {
+            foreach ($request->get("roles") as $item) {
+                array_push($roles, $item);
+            }
+        }
+        $user->roles()->sync($roles);
         return redirect()->route('usuario.index');
     }
 

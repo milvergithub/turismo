@@ -37,23 +37,21 @@
                         @endif
                     </div>
 
-                    <div class="form-group" style="width: 60%; height: 500px;">
+                    <div class="form-group" style="width: 100%;">
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
-                                @foreach($model->fotosLugares as $fotolugares)
+                                @foreach($fotos as $fotolugares)
                                     <li data-target="#carousel-example-generic" data-slide-to="{{$contador}}" class="{{$contadoractive}}"></li>
-                                    {{ $contadoractive = '' }}
-                                    {{ $contador ++ }}
                                 @endforeach
 
                             </ol>
 
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner" role="listbox">
-                                @foreach($model->fotosLugares as $fotolugares)
+                                @foreach($fotos as $fotolugar)
                                     <div class="item {{ $yourVar }}">
-                                        <img src="{{$fotolugares->Foto->getFotoPathShow()}}" alt="...">
+                                        <img src="{{$fotolugar->getUrl()}}" class="img img-responsive" width="100%" alt="...">
                                         <div class="carousel-caption">
                                             ...
                                         </div>
@@ -78,7 +76,7 @@
 
 
                   <div class="form-group">
-                      <div style="width: 60%; height: 500px;">
+                      <div style="width: 100%; height: 500px;">
                           {!! Mapper::render() !!}
                         </div>
                     </div>

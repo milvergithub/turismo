@@ -28,7 +28,7 @@
 </head>
 <body>
 <script src="{{ asset('js/jquery.vide.min.js') }}"></script>
-<div data-vide-bg="video/tr">
+<div>
     <div class="banner">
         <div class="header-top">
             <div class="container">

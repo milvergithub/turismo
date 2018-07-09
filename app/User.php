@@ -6,7 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
-
+use DB;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -27,7 +27,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nombre_usuario', 'email', 'contrasenia','apellido_paterno','apellido_materno','genero','estado','descripcion'
+        'id', 'nombre_usuario', 'email', 'contrasenia','apellido_paterno','apellido_materno','genero','estado','descripcion'
     ];
 
     /**
@@ -42,13 +42,6 @@ class User extends Authenticatable
     const ROLE_ADMIN = "Administrador";
     const ROLE_VENTAS = "Ventas";
 
-
-    public static  function getRoles()
-    {
-        return  array(User::ROL_ADMINISTRADOR=>User::ROL_ADMINISTRADOR,User::ROL_REGISTRADO=>User::ROL_REGISTRADO);
-
-    }
-
     public static  function getGeneros()
     {
         return  array('' => ' .. Seleccione ..',User::MUJER=>User::MUJER,User::HOMBRE=>User::HOMBRE);
@@ -62,6 +55,14 @@ class User extends Authenticatable
 
     public static function getCurrentSession(){
         return Auth::user();
+    }
+
+    public static function getRolesAsigandos($userId) {
+        return DB::table('users')
+            ->join('role_user','users.id','=','role_user.user_id')
+            ->join('roles','roles.id','=','role_user.role_id')
+            ->where('users.id', '=', $userId)
+            -> select('roles.*')->get();
     }
 
 }

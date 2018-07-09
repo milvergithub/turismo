@@ -7,7 +7,7 @@
                 <div class="panel-heading">Lista de Usuarios</div>
 
                 <div class="panel-body">
-                    <table class="table table-bordered" id="users-table">
+                    <table class="table table-striped table-bordered dt-responsive nowrap" id="users-table" width="100%">
                         <thead>
                         <tr>
                             <th>Id</th>
@@ -30,6 +30,7 @@
     <script>
         $(function() {
             $('#users-table').DataTable({
+                responsive: true,
                 processing: true,
                 serverSide: true,
                 language: {

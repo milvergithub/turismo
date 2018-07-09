@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container-fluid">
-    <div class="row">
+    <div class="container-fluid">
+        <div class="row">
             <div class="panel panel-default">
-                <div class="panel-heading">Crear Lugar Turistico </div>
+                <div class="panel-heading">Crear Lugar Turistico</div>
 
                 <div class="panel-body">
                     {!! Form::open( ['route' => ['lugaresturisticos.store',$model],'method' =>'POST']) !!}
@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('latitud') ? ' has-error' : '' }}">
-                          {!! Form::hidden('latitud',$model->nombre, ['class'=>'form-control','placeholder'=>'latitud', 'id' => 'latitud']) !!}
+                        {!! Form::hidden('latitud',$model->nombre, ['class'=>'form-control','placeholder'=>'latitud', 'id' => 'latitud']) !!}
                         @if ($errors->has('latitud'))
                             <span class="help-block">
                                         <strong>{{ $errors->first('latitud') }}</strong>
@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('longitud') ? ' has-error' : '' }}">
-                         {!! Form::hidden('longitud',$model->longitud, ['class'=>'form-control','placeholder'=>'longitud','id' => 'longitud']) !!}
+                        {!! Form::hidden('longitud',$model->longitud, ['class'=>'form-control','placeholder'=>'longitud','id' => 'longitud']) !!}
                         @if ($errors->has('longitud'))
                             <span class="help-block">
                                         <strong>{{ $errors->first('longitud') }}</strong>
@@ -42,10 +42,10 @@
 
                     </div>
                     <div class="form-group">
-                        <div id="map" style="height: 150px;"></div>
+                        <div id="map" style="height: 350px;"></div>
                     </div>
 
-                    <div class="form-group{{  $errors->first('descripcion') ? ' has-error' : '' }}" >
+                    <div class="form-group{{  $errors->first('descripcion') ? ' has-error' : '' }}">
                         {!!  htmlspecialchars_decode( Form::label('nombre','Descripcion : <span class=" fa fa-asterisk  colorspan"></span>') )!!}
                         {!! Form::textarea('descripcion',$model->descripcion, ['class'=>'form-control','placeholder'=>'Descripcion']) !!}
                         @if ($errors->has('descripcion'))
@@ -65,7 +65,7 @@
                 </div>
             </div>
         </div>
-</div>
+    </div>
 
 @endsection
 
@@ -90,7 +90,7 @@
                 anchorPoint: new google.maps.Point(0, -29)
             });
 
-            autocomplete.addListener('place_changed', function() {
+            autocomplete.addListener('place_changed', function () {
                 infowindow.close();
                 marker.setVisible(false);
                 var place = autocomplete.getPlace();
@@ -116,7 +116,7 @@
                     scaledSize: new google.maps.Size(35, 35)
                 }));
 
-               console.log('latitud', place.geometry.location.lat());
+                console.log('latitud', place.geometry.location.lat());
                 console.log('longitud', place.geometry.location.lng());
 
                 $('#latitud').val(place.geometry.location.lat())
@@ -140,7 +140,7 @@
             // Autocomplete.
             function setupClickListener(id, types) {
                 var radioButton = document.getElementById(id);
-                radioButton.addEventListener('click', function() {
+                radioButton.addEventListener('click', function () {
                     autocomplete.setTypes(types);
                 });
             }
