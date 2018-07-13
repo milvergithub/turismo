@@ -71,23 +71,21 @@
 {!! Form::submit('Enviar',['class' => 'btn btn-primary']) !!}
 {!! Form::close() !!}
 <div class="panel-body">
-    <ul class="chat" id="inserted_data">
-        @foreach($model->comentarios as $comentario)
-        <li class="left clearfix"><span class="chat-img pull-left">
-                            <img src="http://placehold.it/50/55C1E7/fff&text" alt="User Avatar" class="img-circle" />
-                        </span>
-            <div class="chat-body clearfix">
-                <div class="header">
-                    <strong class="primary-font">{{$comentario->Usuario->nombre_usuario}}</strong> <small class="pull-right text-muted">
-                        <span class="glyphicon glyphicon-time"></span>{{$comentario->fecha}}</small>
+    <section class="comments">
+        @foreach($comments as $comment)
+            <article class="comment">
+                <a class="comment-img" href="#non">
+                    <img src="http://lorempixum.com/50/50/people/1" alt="" width="50" height="50" />
+                </a>
+                <div class="comment-body">
+                    <div class="text">
+                        <p>{{$comment->comment}}</p>
+                    </div>
+                    <p class="attribution">by {{\App\User::find($comment->commented_id)->nombre_usuario}} - {{$comment->created_at}}</p>
                 </div>
-                <p>
-                    {{$comentario->comentario}}
-                </p>
-            </div>
-        </li>
+            </article>
         @endforeach
-    </ul>
+    </section>
 </div>
 @endsection
 

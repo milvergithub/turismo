@@ -66,14 +66,14 @@ class HomeController extends Controller
         $contadoractive = 'active';
         $contador = 0;
         $model = Blog::find($id);
-
+        $comments = $model->comments;
         $comentario = new Comentario();
         $comentario->usuario_id = Auth::user()->id;
         $comentario->blog_id = $id;
 
         return view('showblog')->with(['model' => $model, 'yourVar' => $yourVar,
-            'contadoractive' => $contadoractive, 'contador' => $contador, 'comentario' => $comentario
-
+            'contadoractive' => $contadoractive, 'contador' => $contador, 'comentario' => $comentario,
+            'comments' => $comments
         ]);
     }
 

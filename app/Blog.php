@@ -12,7 +12,7 @@ class Blog extends Model
     use Mediable;
 
     protected $mustBeApproved = false;
-    protected $canBeRated = true;
+    protected $canBeRated = false;
     protected $table = 'blog';
     protected $fillable = [
         'nombre', 'descripcion', 'fecha','usuario_id'
