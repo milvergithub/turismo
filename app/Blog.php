@@ -2,12 +2,17 @@
 
 namespace App;
 
+use Actuallymab\LaravelComment\Commentable;
 use Illuminate\Database\Eloquent\Model;
 use Plank\Mediable\Mediable;
 
 class Blog extends Model
 {
+    use Commentable;
     use Mediable;
+
+    protected $mustBeApproved = false;
+    protected $canBeRated = true;
     protected $table = 'blog';
     protected $fillable = [
         'nombre', 'descripcion', 'fecha','usuario_id'

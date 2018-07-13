@@ -21,7 +21,8 @@
         "laraveles/spanish": "^1.0",
         "plank/laravel-mediable": "^2.7",
         "yajra/laravel-datatables-oracle": "^8.4",
-        "zizaco/entrust": "^1.9"
+        "zizaco/entrust": "^1.9",
+        "actuallymab/laravel-comment": "0.4.x"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

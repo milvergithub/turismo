@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Actuallymab\LaravelComment\CanComment;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
@@ -11,6 +12,7 @@ class User extends Authenticatable
 {
     use Notifiable;
     use EntrustUserTrait;
+    use CanComment;
 
   const ROL_ADMINISTRADOR = 'Administrador';
   const ROL_REGISTRADO    = 'Registrado';

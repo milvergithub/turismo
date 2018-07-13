@@ -59,7 +59,7 @@
 {!! Form::open( ['route' => ['comentarioajax',$comentario],'method' =>'POST', 'onsubmit' => "return InsertViaAjax();",'id' => "ajax-form-submit"]) !!}
   <div class="form-group{{  $errors->first('email') ? ' has-error' : '' }}" >
     {!!  htmlspecialchars_decode( Form::label('nombre','Comentar : <span class=" fa fa-asterisk  colorspan"></span>') )!!}
-    {!! Form::text('comentario',$comentario->comentario, ['class'=>'form-control','placeholder'=>'' ,'id' => 'comentario']) !!}
+    {!! Form::textarea('comentario',$comentario->comentario, ['class'=>'form-control','placeholder'=>'' ,'id' => 'comentario']) !!}
     @if ($errors->has('comentario'))
         <span class="help-block">
          <strong>{{ $errors->first('comentario') }}</strong>

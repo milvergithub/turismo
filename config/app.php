@@ -175,9 +175,7 @@ return [
          */
         Zizaco\Entrust\EntrustServiceProvider::class,
         Plank\Mediable\MediableServiceProvider::class,
-        /*
-         * Application Service Providers...
-         */
+        \Actuallymab\LaravelComment\LaravelCommentServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,

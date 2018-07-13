@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog;
 use App\Comentario;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class ComentarioController extends Controller
 {
@@ -21,6 +23,11 @@ class ComentarioController extends Controller
 
     public  function  insertajax(Request $request)
     {
+        //TODO
+
+        $blog = Blog::find($request->get("blog_id"));
+        $user = Auth::user();
+        $user->comment($blog , $request->get("comentario"), 3);
 
         $comentario  = new Comentario($request->all());
         $comentario -> fecha = date('Y-m-d');
