@@ -21,24 +21,12 @@ class ComentarioController extends Controller
         //
     }
 
-    public  function  insertajax(Request $request)
-    {
-        //TODO
-
+    public  function  insertajax(Request $request) {
         $blog = Blog::find($request->get("blog_id"));
         $user = Auth::user();
         $user->comment($blog , $request->get("comentario"), 3);
-
-        $comentario  = new Comentario($request->all());
-        $comentario -> fecha = date('Y-m-d');
-        $comentario -> estado = 'AC';
-        if ($comentario->save() ) {
-            return response()->json(['success'=>'Ok','model' => $comentario, 'user' => User::find($comentario->usuario_id)]);
-        }else{
-            return response()->json(['error'=>$comentario->errors()]);
-        }
-
-
+        $comments = $blog->comments;
+        return view("comment.comments")->with(["comments" => $comments]);
      }
 
     /**
