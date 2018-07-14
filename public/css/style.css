@@ -2022,12 +2022,6 @@ section{
     box-shadow: 0 1px 1px rgba(0,0,0,0.2), inset 0 1px 1px rgba(0,0,0,0.1);
     background: #ccc;
 }
-
-.comment:hover {
-    /*  cursor: url('../images/FB_CUR.cur');  See the result on http://lab.web-gate.fr/timeline/ */
-    cursor: cell; /* This line is for the cursor */
-}
-
 .comment:hover:before { background: #3b5998 }
 
 .comment .text:before {
