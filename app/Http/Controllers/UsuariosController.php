@@ -39,6 +39,8 @@ class UsuariosController extends Controller
 
         return Datatables::of(User::query())
             ->addColumn('action', function ($user) {
+                if (User::getCurrentSession()->id === $user->id)
+                    return;
                 return '<a href="'.route('usuario.edit',$user->id).'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
             })
             ->make(true);

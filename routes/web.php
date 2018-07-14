@@ -47,6 +47,12 @@ Route::group(['middleware' =>[ 'auth', 'role:admin']], function() {
     Route::resource('usuario','UsuariosController');
     Route::resource('roles','RoleController');
 });
+//create-lugar-turistico
+Route::group(['middleware' =>['permission:create-lugar-turistico']], function() {
+    Route::get('lugares/turisticos/create','LugaresturisticosController@createGuest');
+    Route::post('lugares/turisticos/store','LugaresturisticosController@storeGuest')->name('lugares.storeGuest');
+});
+
 
 Route::resource('fotos', 'FotosController');
 //Route::resource('blog', 'BlogController');

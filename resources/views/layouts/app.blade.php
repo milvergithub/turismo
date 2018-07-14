@@ -43,17 +43,20 @@
             <div class="carousel slide carousel-fade" data-ride="carousel">
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                    </div>
-                    <div class="item">
-                    </div>
-                    <div class="item">
-                    </div>
+                    <div class="item active"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
                 </div>
             </div>
             <div class="navigation">
                 <div class="logo">
-                    <h1><a href="index.html">@lang('home.title')</a></h1>
+                    <h1><a href="/">@lang('home.title')</a></h1>
                 </div>
                 <div class="navigation-right">
                     <span class="menu"><img src="{{asset('images/menu.png')}}" alt=" "/></span>

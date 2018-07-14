@@ -18,9 +18,4 @@ class Blog extends Model
         'nombre', 'descripcion', 'fecha','usuario_id'
     ];
     const TAG_PICTURE = 'foto-blog';
-    //
-    public   function  comentarios()
-    {
-        return $this->hasMany('App\Comentario');
-    }
 }

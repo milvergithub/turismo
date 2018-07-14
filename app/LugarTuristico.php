@@ -15,6 +15,7 @@ class LugarTuristico extends Model
      */
     const ESTADO_ACTIVO= 'Activo';
     const ESTADO_INACTIVO = 'Inactivo';
+    const ESTADO_PENDING = 'PENDING';
     const TAG_PICTURE = 'foto-lugares';
     protected $fillable = [
         'nombre', 'latitud', 'longitud','descripcion','estado'

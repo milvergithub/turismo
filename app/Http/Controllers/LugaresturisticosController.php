@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\LugarTuristico;
 use Illuminate\Http\Request;
+use MediaUploader;
 use Yajra\Datatables\Datatables;
 use Mapper;
 
@@ -82,6 +83,38 @@ class LugaresturisticosController extends Controller
 
         return view('lugaresturisticos.create')->with(['model'=>$model,'map' => $map] );
     }
+    public function createGuest()
+    {
+        $model = new LugarTuristico();
+        $config = array();
+        $config['center'] = 'auto';
+        $config['onboundschanged'] = 'if (!centreGot) {
+            var mapCentre = map.getCenter();
+            marker_0.setOptions({
+                position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng())
+            });
+        }
+        centreGot = true;';
+
+        app('map')->initialize($config);
+
+        // set up the marker ready for positioning
+        // once we know the users location
+        $marker = array();
+        app('map')->add_marker($marker);
+
+        $map = app('map')->create_map();
+
+
+        $config['center'] = '-17.4139766, -66.16532239999998';
+        $config['zoom'] = 'auto';
+        $config['places'] = TRUE;
+        $config['placesAutocompleteInputID'] = 'myPlaceTextBox';
+        $config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
+        $config['placesAutocompleteOnChange'] = 'alert(\'You selected a place\');';
+
+        return view('lugaresturisticos.create-guest')->with(['model'=>$model,'map' => $map] );
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -99,6 +132,23 @@ class LugaresturisticosController extends Controller
 
     }
 
+
+    public function storeGuest(Request $request)
+    {
+
+        $lugarTuristico = new LugarTuristico($request->all());
+        $lugarTuristico -> estado = LugarTuristico::ESTADO_INACTIVO;
+        $lugarTuristico ->save();
+        if (!empty($request->has('file'))) {
+            $files = $request->file('file');
+            foreach ($files as $file) {
+                $media = MediaUploader::fromSource($file)->useHashForFilename()->upload();
+                $lugarTuristico->attachMedia($media, LugarTuristico::TAG_PICTURE);
+            }
+        }
+        return redirect()->route('lugares');
+
+    }
     /**
      * Display the specified resource.
      *

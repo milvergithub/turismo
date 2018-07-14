@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
-use App\Comentario;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -26,7 +25,7 @@ class ComentarioController extends Controller
         $user = Auth::user();
         $user->comment($blog , $request->get("comentario"), 3);
         $comments = $blog->comments;
-        return view("comment.comments")->with(["comments" => $comments]);
+        return view("comment.comments")->with(["comments" => $comments->reverse()]);
      }
 
     /**

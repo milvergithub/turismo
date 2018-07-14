@@ -8,6 +8,7 @@ use App\LugarTuristico;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Mapper;
+use DB;
 use GoogleMaps;
 
 class HomeController extends Controller
@@ -73,15 +74,21 @@ class HomeController extends Controller
 
         return view('showblog')->with(['model' => $model, 'yourVar' => $yourVar,
             'contadoractive' => $contadoractive, 'contador' => $contador, 'comentario' => $comentario,
-            'comments' => $comments
+            'comments' => $comments->reverse()
         ]);
     }
 
     public function lugares()
     {
-        $model = LugarTuristico::all();
+        $lugares = LugarTuristico::all();
+        $data = [];
+        foreach ($lugares as $lugar) {
+            if ($lugar->estado === LugarTuristico::ESTADO_ACTIVO) {
+                $data[] = $lugar;
+            }
+        }
 
-        return view('lugares')->with(['model' => $model]);
+        return view('lugares')->with(['model' => $data]);
     }
 
     public function blog()
