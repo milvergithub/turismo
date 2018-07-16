@@ -1,7 +1,31 @@
 <ul class="nav1 nav nav-wil">
-    <li class="active"><a data-hover="@lang('home.home')" href="{{ route('home') }}">@lang('home.home')</a></li>
-    <li><a data-hover="@lang('home.about')" href="{{ route('about') }}">@lang('home.about')</a></li>
-    <li><a data-hover="@lang('home.place')" href="{{ route('lugares') }}">@lang('home.place')</a></li>
-    <li><a data-hover="@lang('home.blog')" href="{{ route('blogs') }}">@lang('home.blog')</a></li>
-    <li><a data-hover="@lang('home.contact')" href="{{ route('contact') }}">@lang('home.contact')</a></li>
+    @if(\Illuminate\Support\Facades\Route::currentRouteName() === 'home')
+        <li class="active"><a data-hover="@lang('home.home')" href="{{ route('home') }}">@lang('home.home')</a></li>
+    @else
+        <li><a data-hover="@lang('home.home')" href="{{ route('home') }}">@lang('home.home')</a></li>
+    @endif
+
+    @if(\Illuminate\Support\Facades\Route::currentRouteName() === 'about')
+        <li class="active"><a data-hover="@lang('home.about')" href="{{ route('about') }}">@lang('home.about')</a></li>
+    @else
+        <li><a data-hover="@lang('home.about')" href="{{ route('about') }}">@lang('home.about')</a></li>
+    @endif
+
+    @if(\Illuminate\Support\Facades\Route::currentRouteName() === 'lugares')
+        <li class="active"><a data-hover="@lang('home.place')" href="{{ route('lugares') }}">@lang('home.place')</a></li>
+    @else
+        <li><a data-hover="@lang('home.place')" href="{{ route('lugares') }}">@lang('home.place')</a></li>
+    @endif
+
+    @if(\Illuminate\Support\Facades\Route::currentRouteName() === 'blogs')
+        <li class="active"><a data-hover="@lang('home.blog')" href="{{ route('blogs') }}">@lang('home.blog')</a></li>
+    @else
+        <li><a data-hover="@lang('home.blog')" href="{{ route('blogs') }}">@lang('home.blog')</a></li>
+    @endif
+
+    @if(\Illuminate\Support\Facades\Route::currentRouteName() === 'contact')
+        <li class="active"><a data-hover="@lang('home.contact')" href="{{ route('contact') }}">@lang('home.contact')</a></li>
+    @else
+        <li><a data-hover="@lang('home.contact')" href="{{ route('contact') }}">@lang('home.contact')</a></li>
+    @endif
 </ul>

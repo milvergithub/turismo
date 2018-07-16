@@ -48,7 +48,7 @@
                     <div class="item"></div>
                 </div>
             </div>
-            <div class="navigation">
+            <div class="navigation navigation-custom">
                 <div class="logo">
                     <h1><a href="/">@lang('home.title')</a></h1>
                 </div>

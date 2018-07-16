@@ -91,7 +91,7 @@ input[type="submit"],.w3agile_contact_right_agileinfo p a,.w3_copy_right p a{
     letter-spacing: 1px;
 }
 .navigation-right ul li.active a{
-	color:#fff;
+	color: #ff835d;
 }
 .navigation {
     padding:1em 0em;
@@ -2033,5 +2033,11 @@ section{
     -o-transform: rotate(45deg);
 }
 /* END COMMENTS STYLE*/
+
+.navigation-custom {
+    border-radius: 0px 0px 15px 15px;
+    padding: 0em 0em;
+    height: 60px;
+}
 
 

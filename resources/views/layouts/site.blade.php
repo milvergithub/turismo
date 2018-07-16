@@ -40,7 +40,7 @@
         </div>
         <div class="container">
 
-            <div class="navigation">
+            <div class="navigation navigation-custom">
                 <div class="logo">
                     <h1><a href="index.html">@lang('home.title')</a></h1>
                 </div>
