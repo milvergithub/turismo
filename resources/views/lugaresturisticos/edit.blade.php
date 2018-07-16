@@ -1,62 +1,58 @@
 @extends('layouts.admin')
-
+@push('scriptshead')
+<script type='text/javascript'>
+    var centreGot = false;
+</script>
+{!! $map['js'] !!}
+@endpush
 @section('content')
-<div class="container-fluid">
-    <div class="row">
+    <div class="container-fluid">
+        <div class="row">
             <div class="panel panel-default">
-                <div class="panel-heading">Editar Usuario {!! $model->nombre_usuario !!}</div>
+                <div class="panel-heading">Crear Lugar Turistico</div>
 
                 <div class="panel-body">
-                    {!! Form::open( ['route' => ['usuario.update',$model],'method' =>'PUT']) !!}
+                    {!! Form::open( ['route' => ['lugaresturisticos.update',$model],'method' =>'PUT']) !!}
 
-                    <div class="form-group{{ $errors->has('nombre_usuario') ? ' has-error' : '' }}">
+                    <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
                         {!!  htmlspecialchars_decode( Form::label('nombre','Nombre : <span class=" fa fa-asterisk  colorspan"></span>') )!!}
-                        {!! Form::text('nombre_usuario',$model->nombre_usuario, ['class'=>'form-control','placeholder'=>'nombre']) !!}
-                        @if ($errors->has('nombre_usuario'))
+                        {!! Form::text('nombre',$model->nombre, ['class'=>'form-control','placeholder'=>'nombre']) !!}
+                        @if ($errors->has('nombre'))
                             <span class="help-block">
-                                        <strong>{{ $errors->first('nombre_usuario') }}</strong>
+                                        <strong>{{ $errors->first('nombre') }}</strong>
                                     </span>
                         @endif
                     </div>
 
-                    <div class="form-group">
-                        {!!  Form::label('Apellidos','Apellido Paterno ') !!}
-                        {!! Form::text('apellido_paterno',$model->apellidos, ['class'=>'form-control','placeholder'=>'Apellido paterno']) !!}
-
-                    </div>
-
-                    <div class="form-group{{  $errors->first('email') ? ' has-error' : '' }}" >
-                        {!!  htmlspecialchars_decode( Form::label('nombre','Email : <span class=" fa fa-asterisk  colorspan"></span>') )!!}
-                        {!! Form::text('email',$model->email, ['class'=>'form-control','placeholder'=>'ejemplo@gmail.com']) !!}
-                        @if ($errors->has('email'))
+                    <div class="form-group{{ $errors->has('latitud') ? ' has-error' : '' }}">
+                        {!! Form::hidden('latitud',$model->nombre, ['class'=>'form-control','placeholder'=>'latitud', 'id' => 'latitud']) !!}
+                        @if ($errors->has('latitud'))
                             <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('latitud') }}</strong>
                                     </span>
                         @endif
                     </div>
 
-                    <div class="form-group">
-
-                        {{ Form::label('Genero', 'Genero') }}
-                        {{ Form::select('genero', \App\User::getGeneros(),$model->genero,
-                            array(  'class' => 'chosen-select form-control',
-                                    'data-placeholder' => ' .. Selecciona...',
-                                    'tabindex' => '2',
-                                    'id'=>'genero'
-                            ))
-                        }}
+                    <div class="form-group{{ $errors->has('longitud') ? ' has-error' : '' }}">
+                        {!! Form::hidden('longitud',$model->longitud, ['class'=>'form-control','placeholder'=>'longitud','id' => 'longitud']) !!}
+                        @if ($errors->has('longitud'))
+                            <span class="help-block">
+                                        <strong>{{ $errors->first('longitud') }}</strong>
+                                    </span>
+                        @endif
                     </div>
 
-                    <div  class="form-group">
-                        {{ Form::label('Rol', 'Rol') }}
-                        {{ Form::select('rol', \App\User::getRoles(),$model->rol,
-                            array(  'class' => 'chosen-select form-control',
-                                    'data-placeholder' => 'Selecciona...',
-                                    'tabindex' => '2',
-                                    'id'=>'rol_id'
-                            ))
-                        }}
+                    <div class="form-group{{  $errors->first('descripcion') ? ' has-error' : '' }}">
+                        {!!  htmlspecialchars_decode( Form::label('nombre','Descripcion : <span class=" fa fa-asterisk  colorspan"></span>') )!!}
+                        {!! Form::textarea('descripcion',$model->descripcion, ['class'=>'form-control','placeholder'=>'Descripcion']) !!}
+                        @if ($errors->has('descripcion'))
+                            <span class="help-block">
+                                        <strong>{{ $errors->first('descripcion') }}</strong>
+                                    </span>
+                        @endif
                     </div>
+                    {!! $map['html'] !!}
+
                     <div class="form-group">
 
                         {!! Form::submit('Registrar',['class' => 'btn btn-primary']) !!}
@@ -66,5 +62,10 @@
                 </div>
             </div>
         </div>
-</div>
+    </div>
+
 @endsection
+
+@push('scripts')
+
+@endpush

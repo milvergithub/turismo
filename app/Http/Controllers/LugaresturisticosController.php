@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use MediaUploader;
 use Yajra\Datatables\Datatables;
 use Mapper;
+use FarhanWazir\GoogleMaps\GMaps;
 
 use Edofre\SliderPro\Models\Slide;
 use Edofre\SliderPro\Models\Slides\Caption;
@@ -16,6 +17,12 @@ use Edofre\SliderPro\SliderPro;
 
 class LugaresturisticosController extends Controller
 {
+
+    protected $gmap;
+
+    public function __construct(GMaps $gmap){
+        $this->gmap = $gmap;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -186,11 +193,40 @@ class LugaresturisticosController extends Controller
      */
     public function edit($id)
     {
-        /**
-        $model = User::find($id);
+        $model = LugarTuristico::find($id);
+        $center = $model->latitud.', '.$model->longitud;
+        $config = array();
+        $config['map_height'] = '500px';
+        $config['zoom'] = 17;
+        $config['streetViewAddressPosition'] = 'BOTTOM';
+        $config['center'] = $center;
+        $config['onboundschanged'] = 'if (!centreGot) {
+            var mapCentre = map.getCenter();
+            marker_0.setOptions({
+                position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng())
+            });
+        }
+        centreGot = true;';
 
-        return view('usuario.edit')->with('model',$model);
-         */
+        $this->gmap->initialize($config); // Initialize Map with custom configuration
+
+        // set up the marker ready for positioning
+        $marker = array();
+        $marker['draggable'] = true;
+        $marker['ondragend'] = '
+        iw_'. $this->gmap->map_name .'.close();
+        reverseGeocode(event.latLng, function(status, result, mark){
+            if(status == 200){
+                iw_'. $this->gmap->map_name .'.setContent(result);
+                iw_'. $this->gmap->map_name .'.open('. $this->gmap->map_name .', mark);
+            }
+        }, this);
+        ';
+
+        $this->gmap->add_marker($marker);
+
+        $map = $this->gmap->create_map(); // This object will render javascript files and map view; you can call JS by $map['js'] and map view by $map['html']
+        return view('lugaresturisticos.edit')->with(['model'=>$model,'map' => $map] );
     }
 
     /**

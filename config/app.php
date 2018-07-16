@@ -170,6 +170,7 @@ return [
         Cornford\Googlmapper\MapperServiceProvider::class,
         Edofre\SliderPro\SliderProServiceProvider::class,
         GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
+        FarhanWazir\GoogleMaps\GMapsServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -238,6 +239,7 @@ return [
         'Mapper'         => Cornford\Googlmapper\Facades\MapperFacade::class,
         'SliderPro' => Edofre\SliderPro\Facades\SliderPro::class,
         'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
+        'GMaps' => FarhanWazir\GoogleMaps\Facades\GMapsFacade::class,
     ],
 
 ];

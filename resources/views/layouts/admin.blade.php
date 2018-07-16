@@ -28,6 +28,7 @@
     <!---->
     <link href="{{ asset('/dropzone/dropzone.css') }}" rel="stylesheet">
     <script src="{{ asset('/dropzone/dropzone.js') }}"></script>
+    @stack('scriptshead')
 </head>
 <body>
 <script src="{{ asset('js/jquery.vide.min.js') }}"></script>
@@ -162,7 +163,5 @@
 @yield('footer')
 <!--copy-->
 @stack('scripts')
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8vPUF8KLTt3i839_lF9qoDfdDIlvp7aA&libraries=places&callback=initMap"
-        async defer></script>
 </body>
 </html>

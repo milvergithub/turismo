@@ -1,5 +1,8 @@
 @extends('layouts.admin')
-
+@push('scripts')
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8vPUF8KLTt3i839_lF9qoDfdDIlvp7aA&libraries=places&callback=initMap"
+        async defer></script>
+@endpush
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -115,9 +118,6 @@
                     anchor: new google.maps.Point(17, 34),
                     scaledSize: new google.maps.Size(35, 35)
                 }));
-
-                console.log('latitud', place.geometry.location.lat());
-                console.log('longitud', place.geometry.location.lng());
 
                 $('#latitud').val(place.geometry.location.lat())
                 $('#longitud').val(place.geometry.location.lng())
