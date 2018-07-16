@@ -24,25 +24,19 @@
 
                     <div class="form-group{{ $errors->has('latitud') ? ' has-error' : '' }}">
                         {!! Form::hidden('latitud',$model->nombre, ['class'=>'form-control','placeholder'=>'latitud', 'id' => 'latitud']) !!}
-                        @if ($errors->has('latitud'))
-                            <span class="help-block">
-                                        <strong>{{ $errors->first('latitud') }}</strong>
-                                    </span>
-                        @endif
                     </div>
 
                     <div class="form-group{{ $errors->has('longitud') ? ' has-error' : '' }}">
                         {!! Form::hidden('longitud',$model->longitud, ['class'=>'form-control','placeholder'=>'longitud','id' => 'longitud']) !!}
-                        @if ($errors->has('longitud'))
-                            <span class="help-block">
-                                        <strong>{{ $errors->first('longitud') }}</strong>
-                                    </span>
-                        @endif
                     </div>
                     <div class="form-group">
                         <input id="pac-input" class="form-control" type="text"
                                placeholder="Buscar Direcciones">
-
+                        @if ($errors->has('longitud'))
+                            <span class="help-block">
+                                        <strong class="text-danger">Ingrese una lugar a registar</strong>
+                                    </span>
+                        @endif
                     </div>
                     <div class="form-group">
                         <div id="map" style="height: 350px;"></div>

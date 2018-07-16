@@ -41,6 +41,11 @@
                 <div class="form-group">
                     <div id="map" style="height: 350px;"></div>
                 </div>
+                <div class="form-group">
+                    <div class="file-loading">
+                        <input id="file-lugares" name="files[]" type="file" multiple>
+                    </div>
+                </div>
 
                 <div class="form-group{{  $errors->first('descripcion') ? ' has-error' : '' }}">
                     {!!  htmlspecialchars_decode( Form::label('nombre','Descripcion : <span class=" fa fa-asterisk  colorspan"></span>') )!!}

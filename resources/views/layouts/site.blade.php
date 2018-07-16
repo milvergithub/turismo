@@ -14,11 +14,12 @@
     <!---->
     <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,300,200' rel='stylesheet' type='text/css'>
-
+    <link href="{{ asset('css/fileinput.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/fileinput.min.js') }}"></script>
     <script src="{{ asset('js/funtion.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <!---->

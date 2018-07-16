@@ -82,6 +82,13 @@
             }
 
         }
+        $('#file-lugares').fileinput({
+            theme: 'fa',
+            language: 'es',
+            uploadUrl: '#',
+            showAjaxErrorDetails: false,
+            allowedFileExtensions: ['jpg', 'png', 'gif']
+        });
     </script>
 
 @endpush

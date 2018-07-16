@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LugarturisticoRequest;
 use App\LugarTuristico;
 use Illuminate\Http\Request;
 use MediaUploader;
@@ -129,7 +130,7 @@ class LugaresturisticosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LugarturisticoRequest $request)
     {
 
         $lugarTuristico = new LugarTuristico($request->all());
@@ -146,8 +147,8 @@ class LugaresturisticosController extends Controller
         $lugarTuristico = new LugarTuristico($request->all());
         $lugarTuristico -> estado = LugarTuristico::ESTADO_PENDING;
         $lugarTuristico ->save();
-        if (!empty($request->has('file'))) {
-            $files = $request->file('file');
+        if (!empty($request->has('files'))) {
+            $files = $request->file('files');
             foreach ($files as $file) {
                 $media = MediaUploader::fromSource($file)->useHashForFilename()->upload();
                 $lugarTuristico->attachMedia($media, LugarTuristico::TAG_PICTURE);
