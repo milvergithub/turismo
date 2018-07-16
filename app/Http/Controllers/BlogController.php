@@ -45,16 +45,16 @@ class BlogController extends Controller
         $blog->usuario_id = User::getCurrentSession()->id;
         $blog->fecha = date('Y-m-d');
           if( $blog ->save()) {
-              $files = $request->file('file');
-              foreach ($files as $file) {
-                  $media = MediaUploader::fromSource($file)->useHashForFilename()->upload();
-                  $blog->attachMedia($media, 'foto-blog');
+              if (!empty($request->has('file'))) {
+                  $files = $request->file('file');
+                  foreach ($files as $file) {
+                      $media = MediaUploader::fromSource($file)->useHashForFilename()->upload();
+                      $blog->attachMedia($media, 'foto-blog');
+                  }
               }
 
           }
-
         return redirect()->route('blogs');
-
     }
 
     /**
