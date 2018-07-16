@@ -4,7 +4,7 @@
             <div class="panel-heading">Crear Lugar Turistico</div>
 
             <div class="panel-body">
-                {!! Form::open( ['route' => ['lugares.storeGuest',$model],'method' =>'POST']) !!}
+                {!! Form::open( ['route' => ['lugares.storeGuest',$model],'method' =>'POST', 'files'=>'true']) !!}
 
                 <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
                     {!!  htmlspecialchars_decode( Form::label('nombre','Nombre : <span class=" fa fa-asterisk  colorspan"></span>') )!!}
