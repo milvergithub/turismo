@@ -46,12 +46,6 @@
                     <div class="item active"></div>
                     <div class="item"></div>
                     <div class="item"></div>
-                    <div class="item"></div>
-                    <div class="item"></div>
-                    <div class="item"></div>
-                    <div class="item"></div>
-                    <div class="item"></div>
-                    <div class="item"></div>
                 </div>
             </div>
             <div class="navigation">
