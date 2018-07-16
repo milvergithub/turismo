@@ -13,11 +13,15 @@ class LugarTuristico extends Model
      *
      * @var array
      */
-    const ESTADO_ACTIVO= 'Activo';
-    const ESTADO_INACTIVO = 'Inactivo';
-    const ESTADO_PENDING = 'PENDING';
+    const ESTADO_ACTIVO= 'ACTIVO';
+    const ESTADO_INACTIVO = 'INACTIVO';
+    const ESTADO_PENDING = 'PENDIENTE';
     const TAG_PICTURE = 'foto-lugares';
     protected $fillable = [
         'nombre', 'latitud', 'longitud','descripcion','estado'
     ];
+
+    public static function getEstados() {
+        return ['ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO', 'PENDIENTE' => 'PENDIENTE'];
+    }
 }

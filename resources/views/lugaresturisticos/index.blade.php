@@ -3,7 +3,9 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <a href="{{ route('lugaresturisticos.create') }}" class="btn btn-info"> Nuevo</a>
+        <div class="form-group">
+            <a href="{{ route('lugaresturisticos.create') }}" class="btn btn-info"> Nuevo</a>
+        </div>
         <div class="panel panel-default">
                 <div class="panel-heading">Lista de Lugares Turisticos</div>
 

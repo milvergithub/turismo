@@ -144,7 +144,7 @@ class LugaresturisticosController extends Controller
     {
 
         $lugarTuristico = new LugarTuristico($request->all());
-        $lugarTuristico -> estado = LugarTuristico::ESTADO_INACTIVO;
+        $lugarTuristico -> estado = LugarTuristico::ESTADO_PENDING;
         $lugarTuristico ->save();
         if (!empty($request->has('file'))) {
             $files = $request->file('file');
@@ -226,7 +226,7 @@ class LugaresturisticosController extends Controller
         $this->gmap->add_marker($marker);
 
         $map = $this->gmap->create_map(); // This object will render javascript files and map view; you can call JS by $map['js'] and map view by $map['html']
-        return view('lugaresturisticos.edit')->with(['model'=>$model,'map' => $map] );
+        return view('lugaresturisticos.edit')->with(['model'=>$model,'map' => $map, 'states' => LugarTuristico::getEstados()] );
     }
 
     /**
@@ -238,19 +238,10 @@ class LugaresturisticosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        /**
-        $user= User::find($id);
-
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->nombre = $request->nombre;
-        $user->apellidos = $request->apelldios;
-        $user->genero = $request->genero;
-        $user->telefono = $request->telefono;
-        $user->rol = $request ->rol;
-        $user->save();
-        return redirect()->route('usuarios.index');
-         */
+        $lugar = LugarTuristico::find($id);
+        $lugar->fill($request->all());
+        $lugar->save();
+        return redirect()->route('lugaresturisticos.index');
     }
 
     /**
