@@ -17,10 +17,10 @@
         <li><a data-hover="@lang('home.place')" href="{{ route('lugares') }}">@lang('home.place')</a></li>
     @endif
 
-    @if(\Illuminate\Support\Facades\Route::currentRouteName() === 'blogs')
-        <li class="active"><a data-hover="@lang('home.blog')" href="{{ route('blogs') }}">@lang('home.blog')</a></li>
+    @if(\Illuminate\Support\Facades\Route::currentRouteName() === 'blogshome')
+        <li class="active"><a data-hover="@lang('home.blog')" href="{{ route('blogshome') }}">@lang('home.blog')</a></li>
     @else
-        <li><a data-hover="@lang('home.blog')" href="{{ route('blogs') }}">@lang('home.blog')</a></li>
+        <li><a data-hover="@lang('home.blog')" href="{{ route('blogshome') }}">@lang('home.blog')</a></li>
     @endif
 
     @if(\Illuminate\Support\Facades\Route::currentRouteName() === 'contact')

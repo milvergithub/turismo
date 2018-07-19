@@ -7,6 +7,7 @@ use App\Http\Requests\BlogRequest;
 use App\User;
 use Illuminate\Http\Request;
 use MediaUploader;
+use Yajra\Datatables\Datatables;
 
 class BlogController extends Controller
 {
@@ -18,8 +19,22 @@ class BlogController extends Controller
     public function index()
     {
         //
+        return view('blog.index');
+    }
+    public function data()
+    {
+
+        return Datatables::of(Blog::query())
+            ->addColumn('action', function ($user) {
+                return;
+            })
+            ->make(true);
     }
 
+    public function blogs()
+    {
+        return view('blog');
+    }
     /**
      * Show the form for creating a new resource.
      *

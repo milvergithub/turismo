@@ -34,7 +34,7 @@ Route::get('datostudisticos', [ 'as' => 'datostudisticos', 'uses' => 'Lugarestur
 //['except' => ['getActivate', 'anotherMethod']]
 
 
-Route::get('/blogs', 'HomeController@blog')->name('blogs');
+Route::get('/blogshome', 'HomeController@blog')->name('blogshome');
 Route::group(['middleware' =>[ 'auth']], function() {
     Route::resource('blog', 'BlogController');
     Route::get('setting', [ 'as' => 'setting', 'uses' => 'UsuariosController@setting']);
@@ -46,6 +46,7 @@ Route::group(['middleware' =>[ 'auth', 'role:admin']], function() {
     Route::resource('lugaresturisticos','LugaresturisticosController');
     Route::resource('usuario','UsuariosController');
     Route::resource('roles','RoleController');
+    Route::get('blogs', [ 'as' => 'blogs', 'uses' => 'BlogController@data']);
 });
 //create-lugar-turistico
 Route::group(['middleware' =>['permission:create-lugar-turistico']], function() {
