@@ -32,12 +32,6 @@ class HomeController extends Controller
     public function index()
     {
         $lugares = LugarTuristico::all()->first();
-        if (App::getLocale() === 'es') {
-            foreach ($lugares as $lugar) {
-                $lugar->nombre = $lugar->nombre_es;
-                $lugar->descripcion = $lugar->descripcion_es;
-            }
-        }
         $yourVar = 'active';
         $contadoractive = 'active';
         $contador = 0;
