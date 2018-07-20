@@ -13,11 +13,20 @@
                     {!! Form::open( ['route' => ['lugaresturisticos.store',$model],'method' =>'POST']) !!}
 
                     <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
-                        {!!  htmlspecialchars_decode( Form::label('nombre','Nombre : <span class=" fa fa-asterisk  colorspan"></span>') )!!}
-                        {!! Form::text('nombre',$model->nombre, ['class'=>'form-control','placeholder'=>'nombre']) !!}
+                        {!!  htmlspecialchars_decode( Form::label('nombre','Name (en): ') )!!}
+                        {!! Form::text('nombre',$model->nombre, ['class'=>'form-control','placeholder'=>'name']) !!}
                         @if ($errors->has('nombre'))
                             <span class="help-block">
                                         <strong>{{ $errors->first('nombre') }}</strong>
+                                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group{{ $errors->has('nombre_es') ? ' has-error' : '' }}">
+                        {!!  htmlspecialchars_decode( Form::label('nombre_es','Nombre (es): ') )!!}
+                        {!! Form::text('nombre_es',$model->nombre, ['class'=>'form-control','placeholder'=>'nombre']) !!}
+                        @if ($errors->has('nombre'))
+                            <span class="help-block">
+                                        <strong>{{ $errors->first('nombre_es') }}</strong>
                                     </span>
                         @endif
                     </div>
@@ -43,11 +52,20 @@
                     </div>
 
                     <div class="form-group{{  $errors->first('descripcion') ? ' has-error' : '' }}">
-                        {!!  htmlspecialchars_decode( Form::label('nombre','Descripcion : <span class=" fa fa-asterisk  colorspan"></span>') )!!}
-                        {!! Form::textarea('descripcion',$model->descripcion, ['class'=>'form-control','placeholder'=>'Descripcion']) !!}
+                        {!!  htmlspecialchars_decode( Form::label('nombre','Description (en): ') )!!}
+                        {!! Form::textarea('descripcion',$model->descripcion, ['class'=>'form-control','placeholder'=>'Description']) !!}
                         @if ($errors->has('descripcion'))
                             <span class="help-block">
                                         <strong>{{ $errors->first('descripcion') }}</strong>
+                                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group{{  $errors->first('descripcion_es') ? ' has-error' : '' }}">
+                        {!!  htmlspecialchars_decode( Form::label('descripcion_es','Descripcion (es): ') )!!}
+                        {!! Form::textarea('descripcion_es',$model->descripcion, ['class'=>'form-control','placeholder'=>'Descripcion']) !!}
+                        @if ($errors->has('descripcion_es'))
+                            <span class="help-block">
+                                        <strong>{{ $errors->first('descripcion_es') }}</strong>
                                     </span>
                         @endif
                     </div>

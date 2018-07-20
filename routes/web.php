@@ -47,6 +47,7 @@ Route::group(['middleware' =>[ 'auth', 'role:admin']], function() {
     Route::resource('usuario','UsuariosController');
     Route::resource('roles','RoleController');
     Route::get('blogs', [ 'as' => 'blogs', 'uses' => 'BlogController@data']);
+    Route::get('blogs/delete/{id}', 'BlogController@deleteBlog');
 });
 //create-lugar-turistico
 Route::group(['middleware' =>['permission:create-lugar-turistico']], function() {

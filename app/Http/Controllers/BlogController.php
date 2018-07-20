@@ -6,6 +6,7 @@ use App\Blog;
 use App\Http\Requests\BlogRequest;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use MediaUploader;
 use Yajra\Datatables\Datatables;
 
@@ -26,7 +27,7 @@ class BlogController extends Controller
 
         return Datatables::of(Blog::query())
             ->addColumn('action', function ($user) {
-                return;
+                return '<a href="/blogs/delete/'.$user->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-trash"></i> Borrar</a>';
             })
             ->make(true);
     }
@@ -69,7 +70,7 @@ class BlogController extends Controller
               }
 
           }
-        return redirect()->route('blogs');
+        return redirect()->route('blogshome');
     }
 
     /**
@@ -115,5 +116,10 @@ class BlogController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function deleteBlog($id) {
+        $model = Blog::find($id);
+        $model->delete();
+        return redirect()->route('blog.index');
     }
 }

@@ -25,7 +25,9 @@ class LugarturisticoRequest extends FormRequest
     {
         return [
              'nombre' => 'required',
+            'nombre_es' => 'required',
              'descripcion'  => 'required',
+            'descripcion_es'  => 'required',
              'latitud'      => 'required',
              'longitud'   => 'required',
 

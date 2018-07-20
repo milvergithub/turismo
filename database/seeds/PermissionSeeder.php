@@ -23,9 +23,9 @@ class PermissionSeeder extends Seeder
                 'name' => 'create user',
                 'description' => 'Crear Usuarios',
             ], [
-                'display_name' => 'Crear Usuario Administrador',
-                'name' => 'create admin',
-                'description' => 'Crear usuario Administrador',
+                'display_name' => 'Crear lugar turistico',
+                'name' => 'create-lugar-turistico',
+                'description' => 'Permiso para crear un lugar turistico',
             ], [
                 'display_name' => 'Crear Usuario Profesionales',
                 'name' => 'create profesional',

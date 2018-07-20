@@ -16,9 +16,11 @@ class CreateLugarTuristicosTable extends Migration
         Schema::create('lugar_turisticos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
+            $table->string('nombre_es');
             $table->string('longitud');
             $table->string('latitud');
             $table->text('descripcion');
+            $table->text('descripcion_es');
             $table->string('estado',20);
             $table->timestamps();
         });

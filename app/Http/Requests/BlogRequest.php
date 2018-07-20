@@ -25,7 +25,9 @@ class BlogRequest extends FormRequest
     {
         return [
             'nombre' => 'required',
-            'descripcion'  => 'required'
+            'nombre_es' => 'required',
+            'descripcion'  => 'required',
+            'descripcion_es'  => 'required',
         ];
     }
 }

@@ -18,7 +18,7 @@ class LugarTuristico extends Model
     const ESTADO_PENDING = 'PENDIENTE';
     const TAG_PICTURE = 'foto-lugares';
     protected $fillable = [
-        'nombre', 'latitud', 'longitud','descripcion','estado'
+        'nombre', 'nombre_es', 'latitud', 'longitud','descripcion', 'descripcion_es', 'estado'
     ];
 
     public static function getEstados() {

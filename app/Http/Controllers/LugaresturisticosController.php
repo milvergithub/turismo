@@ -9,7 +9,7 @@ use MediaUploader;
 use Yajra\Datatables\Datatables;
 use Mapper;
 use FarhanWazir\GoogleMaps\GMaps;
-
+use Lang;
 use Edofre\SliderPro\Models\Slide;
 use Edofre\SliderPro\Models\Slides\Caption;
 use Edofre\SliderPro\Models\Slides\Image;
@@ -41,13 +41,14 @@ class LugaresturisticosController extends Controller
      */
     public function data()
     {
+        $edit = Lang::get('messages.welcome');
 
         return Datatables::of(LugarTuristico::query())
-            ->addColumn('action', function ($lugar) {
+            ->addColumn('action', function ($lugar) use ($edit) {
                 return
 
                     // edit
-                    '<a href="'. route('lugaresturisticos.edit', $lugar->id) .'" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a> '.
+                    '<a href="'. route('lugaresturisticos.edit', $lugar->id) .'" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit </a> '.
 
                     '<a href="'. route('lugaresturisticos.show', $lugar->id) .'" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Agregar Fotos"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Mostrar</a> '.
                     '<a href="'. route('fotos.create',['id' => $lugar->id ]) .'" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Agregar Fotos"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Agregar Fotos</a> '

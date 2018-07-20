@@ -29,3 +29,10 @@
         <li><a data-hover="@lang('home.contact')" href="{{ route('contact') }}">@lang('home.contact')</a></li>
     @endif
 </ul>
+@if(App::getLocale() === 'es')
+        <input type="hidden" id="language_value" value="Spanish">
+        <input type="hidden" id="language_val" value="_es">
+@else
+        <input type="hidden" id="language_value" value="English">
+        <input type="hidden" id="language_val" value="">
+@endif

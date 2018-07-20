@@ -15,7 +15,7 @@ class Blog extends Model
     protected $canBeRated = false;
     protected $table = 'blog';
     protected $fillable = [
-        'nombre', 'descripcion', 'fecha','usuario_id'
+        'nombre', 'nombre_es', 'descripcion', 'descripcion_es', 'fecha','usuario_id'
     ];
     const TAG_PICTURE = 'foto-blog';
 }

@@ -12,7 +12,7 @@
                         <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Nombre</th>
+                            <th>@lang('home.place')Nombre</th>
                             <th>Descripcion</th>
                             <th>Accion</th>
                         </tr>
@@ -31,7 +31,7 @@
                 processing: true,
                 serverSide: true,
                 language: {
-                    "url": 'i18n/Spanish.json'
+                    "url": 'i18n/'+$('#language_value').val()+'.json'
                 },
                 ajax: '{!! route('datostudisticos') !!}',
                 columns: [

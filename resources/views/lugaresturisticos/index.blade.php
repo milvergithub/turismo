@@ -13,10 +13,10 @@
                     <table class="table table-bordered" id="lugar-table">
                         <thead>
                         <tr>
-                            <th width="5%" data-priority="0">Id</th>
-                            <th width="30%" data-priority="1">Nombre</th>
-                            <th width="35%" data-priority="3">Descripcion</th>
-                            <th width="30%" data-priority="1">Accion</th>
+                            <th width="5%">@lang('resource.id')</th>
+                            <th>@lang('resource.name')</th>
+                            <th>@lang('resource.description')</th>
+                            <th>@lang('resource.action')</th>
                         </tr>
                         </thead>
                     </table>
@@ -34,13 +34,13 @@
                 processing: true,
                 serverSide: true,
                 language: {
-                    "url": 'i18n/Spanish.json'
+                    "url": 'i18n/'+$('#language_value').val()+'.json'
                 },
                 ajax: '{!! route('datostudisticos') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
-                    { data: 'nombre', name: 'nombre' },
-                    { data: 'descripcion', name: 'descripcion' },
+                    { data: 'nombre'+ $('#language_val').val(), name: 'nombre' },
+                    { data: 'descripcion'+ $('#language_val').val(), name: 'descripcion' },
                     {data: 'action', name: 'action', orderable: false, searchable: false}
 
                 ]

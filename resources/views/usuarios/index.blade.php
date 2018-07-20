@@ -34,7 +34,7 @@
                 processing: true,
                 serverSide: true,
                 language: {
-                    "url": 'i18n/Spanish.json'
+                    "url": 'i18n/'+$('#language_value').val()+'.json'
                 },
                 ajax: '{!! route('datos') !!}',
                 columns: [
