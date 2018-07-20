@@ -51,7 +51,9 @@
         </div>
         <div class="form-group">
             <div class="col-sm-3"></div>
-            <div class="col-sm-7">{!! Form::submit('Actualizar',['class' => 'btn btn-primary pull-right']) !!}</div>
+            <div class="col-sm-7">
+                <button type="submit" class="btn btn-primary pull-right">@lang('resource.update')</button>
+            </div>
         </div>
         {!! Form::close() !!}
     </div>

@@ -66,8 +66,8 @@
                     {!! $map['html'] !!}
 
                     <div class="form-group">
-
-                        {!! Form::submit('Registrar',['class' => 'btn btn-primary']) !!}
+                        <br><br>
+                        <button type="submit" class="btn btn-primary">@lang('resource.update')</button>
                     </div>
                     {!! Form::close() !!}
 

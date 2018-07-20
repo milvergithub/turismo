@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success">Guardar</button>
+                            <button type="submit" class="btn btn-success">@lang('resource.save')</button>
                         </div>
                         {!! Form::close() !!}
                     </div>

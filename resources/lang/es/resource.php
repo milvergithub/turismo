@@ -7,4 +7,9 @@ return [
     'date' => 'Fecha',
     'datecreated' => 'Fecha creada',
     'action' => 'Accion',
+
+    'new' => 'Nuevo',
+    'save' => 'Guardar',
+    'update' => 'Actualizar',
+    'send' => 'Enviar',
 ];

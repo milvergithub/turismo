@@ -73,7 +73,7 @@
 
                     <div class="form-group">
 
-                        {!! Form::submit('Registrar',['class' => 'btn btn-primary']) !!}
+                        <button type="submit" class="btn btn-primary">@lang('resource.save')</button>
                     </div>
                     {!! Form::close() !!}
 

@@ -19,7 +19,7 @@
                             <div class="dropzone-previews"></div>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success" id="submit">Guardar</button>
+                            <button type="submit" class="btn btn-success" id="submit">@lang('resource.save')</button>
                             {{ Form::hidden('id_lugar', $id_lugar, array('class' => 'form-control')) }}
 
                         </div>

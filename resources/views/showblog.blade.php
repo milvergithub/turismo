@@ -68,7 +68,7 @@
 </div>
 {!! Form::hidden('usuario_id',$comentario->usuario_id) !!}
 {!! Form::hidden('blog_id',$comentario->blog_id) !!}
-{!! Form::submit('Enviar',['class' => 'btn btn-primary']) !!}
+<button type="submit" class="btn btn-primary">@lang('resource.send')</button>
 {!! Form::close() !!}
 <div class="panel-body" id="commentsBlog">
     @include("comment.comments")
