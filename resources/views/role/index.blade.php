@@ -2,13 +2,13 @@
 
 @section('content')
     <div class="container-fluid">
-        <legend>Lista de Roles</legend>
+        <legend>@lang('place.rolelist')</legend>
         <table class="table table-bordered">
             <tr>
-                <th>Nombre</th>
-                <th>Nombre rol</th>
-                <th>Descripcion</th>
-                <th>Opciones</th>
+                <th>@lang('resource.name')</th>
+                <th>@lang('resource.namerole')</th>
+                <th>@lang('resource.description')</th>
+                <th>@lang('resource.action')</th>
             </tr>
             @foreach($roles as $role)
                 <tr>

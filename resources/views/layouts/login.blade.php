@@ -82,7 +82,7 @@
     <div class="container">
         <div class="footer-grids">
             <div class="col-md-3 footer-grid">
-                <h4>Acerca de Nosotros</h4>
+                <h4>@lang('resource.aboutus')</h4>
                 <ul>
                     <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>El Camino Real</li>
                     <li><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>1 599-033-5036</li>
@@ -114,7 +114,7 @@
 <div class="copy-section">
     <div class="container">
         <div class="footer-top">
-            <p>&copy; 2016 Roasting. All rights reserved</p>
+            <p>&copy; @lang('resource.copyright')</p>
         </div>
     </div>
 </div>

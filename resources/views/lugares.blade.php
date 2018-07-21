@@ -16,7 +16,7 @@
                         </div>
                         <div class="col-md-7 service-grid1">
                             @if($lugares->firstMedia($lugares::TAG_PICTURE))
-                                <img src="{{$lugares->firstMedia($lugares::TAG_PICTURE)->getUrl()}}" class="img-responsive gray" alt=""/>
+                                <img src="{{$lugares->firstMedia($lugares::TAG_PICTURE)->getUrl()}}" class="img-responsive img img-thumbnail" alt=""/>
                             @endif
                         </div>
                         <div class="clearfix"></div>

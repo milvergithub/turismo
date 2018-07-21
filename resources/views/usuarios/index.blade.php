@@ -4,19 +4,19 @@
 <div class="container-fluid">
     <div class="row">
             <div class="panel panel-default">
-                <div class="panel-heading">Lista de Usuarios</div>
+                <div class="panel-heading">@lang('place.userlist')</div>
 
                 <div class="panel-body">
                     <table class="table table-striped table-bordered dt-responsive nowrap" id="users-table" width="100%">
                         <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Nombre</th>
-                            <th>Apellido Paterno</th>
-                            <th>Genero</th>
-                            <th>Email</th>
-                            <th>Fecha de Registro</th>
-                            <th>Accion</th>
+                            <th>@lang('resource.id')</th>
+                            <th>@lang('resource.name')</th>
+                            <th>@lang('resource.lastname')</th>
+                            <th>@lang('resource.gender')</th>
+                            <th>@lang('resource.email')</th>
+                            <th>@lang('resource.datecreated')</th>
+                            <th>@lang('resource.action')</th>
                         </tr>
                         </thead>
                     </table>

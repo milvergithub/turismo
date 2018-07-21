@@ -18,7 +18,7 @@
 
     <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="{{ asset('js/fileinput.min.js') }}"></script>
     <script src="{{ asset('js/funtion.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
@@ -80,7 +80,7 @@
     <div class="container">
         <div class="footer-grids">
             <div class="col-md-3 footer-grid">
-                <h4>Acerca de Nosotros</h4>
+                <h4>@lang('resource.aboutus')</h4>
                 <ul>
                     <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>El Camino Real</li>
                     <li><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>1 599-033-5036</li>
@@ -112,14 +112,12 @@
 <div class="copy-section">
     <div class="container">
         <div class="footer-top">
-            <p>&copy; 2016 Roasting. All rights reserved</p>
+            <p>&copy; @lang('resource.copyright')</p>
         </div>
     </div>
 </div>
 @yield('footer')
 <!--copy-->
 @stack('scripts')
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8vPUF8KLTt3i839_lF9qoDfdDIlvp7aA&libraries=places&callback=initMap"
-        async defer></script>
 </body>
 </html>

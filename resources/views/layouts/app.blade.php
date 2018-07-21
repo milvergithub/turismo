@@ -85,7 +85,7 @@
 <div class="copy-section footer-section">
     <div class="container">
         <div class="footer-top">
-            <p>&copy; 2016 Roasting. All rights reserved</p>
+            <p>&copy; @lang('resource.copyright')</p>
         </div>
     </div>
 </div>

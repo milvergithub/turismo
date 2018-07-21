@@ -7,7 +7,7 @@
             <a href="{{ route('lugaresturisticos.create') }}" class="btn btn-info"> @lang('resource.new')</a>
         </div>
         <div class="panel panel-default">
-                <div class="panel-heading">Lista de Lugares Turisticos</div>
+                <div class="panel-heading">@lang('place.placelist')</div>
 
                 <div class="panel-body">
                     <table class="table table-bordered" id="lugar-table">

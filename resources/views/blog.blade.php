@@ -14,7 +14,7 @@
                         </div>
                         <div class="col-md-7 service-grid1">
                             @if($blog->firstMedia($blog::TAG_PICTURE))
-                                <img src="{{$blog->firstMedia($blog::TAG_PICTURE)->getUrl()}}" class="img-responsive gray" alt=""/>
+                                <img src="{{$blog->firstMedia($blog::TAG_PICTURE)->getUrl()}}" class="img-responsive img-thumbnail img-rounded" alt=""/>
                             @endif
                         </div>
                         <div class="clearfix"></div>

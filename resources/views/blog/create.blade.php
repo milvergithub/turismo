@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="panel panel-default">
-                <div class="panel-heading">Crear Lugar Turistico</div>
+                <div class="panel-heading">@lang('place.createplace')</div>
                 <div class="panel-body">
                     <div class="jumbotron how-to-create">
                         {!! Form::open(['route'=>[ 'blog.store',$model ], 'method' => 'POST', 'files'=>'true' , 'class' => '']) !!}
