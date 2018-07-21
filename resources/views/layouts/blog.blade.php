@@ -27,7 +27,6 @@
     <script src="{{ asset('/dropzone/dropzone.js') }}"></script>
 </head>
 <body>
-<script src="{{ asset('js/jquery.vide.min.js') }}"></script>
 <div>
     <div class="">
         <div class="header-top">

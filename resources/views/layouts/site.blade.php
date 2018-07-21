@@ -27,7 +27,6 @@
     <script src="{{ asset('/dropzone/dropzone.js') }}"></script>
 </head>
 <body>
-<script src="{{ asset('js/jquery.vide.min.js') }}"></script>
 <div>
     <div class="">
         <div class="header-top">
@@ -42,7 +41,7 @@
 
             <div class="navigation navigation-custom">
                 <div class="logo">
-                    <h1><a href="index.html">@lang('home.title')</a></h1>
+                    <h1><a href="/">@lang('home.title')</a></h1>
                 </div>
                 <div class="navigation-right">
                     <span class="menu"><img src="{{asset('images/menu.png')}}" alt=" " /></span>

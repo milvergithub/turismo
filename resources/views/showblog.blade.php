@@ -5,7 +5,7 @@
 
     <div class="row">
             <div class="panel panel-default">
-                <div class="panel-heading">Mostrar Lugar Turistico </div>
+                <div class="panel-heading">@lang('place.showblog') </div>
 
                 <div class="panel-body">
                     {!! Form::open( ['route' => ['lugaresturisticos.store',$model],'method' =>'POST']) !!}
