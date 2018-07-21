@@ -47,7 +47,7 @@ input[type="submit"],.w3agile_contact_right_agileinfo p a,.w3_copy_right p a{
 }
 .header-top {
     padding: 1em 0;
-    background: rgba(0, 0, 0, 0.82);
+    background: #373c4f;
 }
 .indicat {
     float: left;
@@ -91,11 +91,11 @@ input[type="submit"],.w3agile_contact_right_agileinfo p a,.w3_copy_right p a{
     letter-spacing: 1px;
 }
 .navigation-right ul li.active a{
-	color: #ff835d;
+	color: #dc873b;
 }
 .navigation {
     padding:1em 0em;
-	background: rgba(2, 1, 1, 0.63)
+	background: rgba(55, 60, 79, 0.84)
 }
 .logo span {
     color: #17C2A4;
@@ -426,7 +426,7 @@ a.button1 {
 }
 .footer-w3l {
     padding: 5em 0;
-    background: #012231;
+    background: #373c4f;
 }
 .footer-grid i {
     font-size: 1.2em;
@@ -531,7 +531,7 @@ a.button1 {
 }
 .copy-section {
     padding: 2em 0;
-    background: #012231;
+    background: #373c4f;
     text-align: center;
 }
 .copy-section.footer-section{
@@ -2040,4 +2040,20 @@ section{
     height: 60px;
 }
 
+.btn-primary {
+    color: #fff !important;
+    background-color: #44b6ae !important;
+    border-color: #44b6ae !important;
+}
+.pagination > .active > a {
+    color: #dc873b;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.btn-info {
+    color: #fff !important;
+    background-color: #dc873b !important;
+    border-color: #dc873b !important;
+}
 
