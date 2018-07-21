@@ -24,7 +24,6 @@ Route::get('/lugares', 'HomeController@lugares')->name('lugares');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/show/{id}', 'HomeController@show')->name('show');
-Route::get('/showblog/{id}', 'HomeController@showblog')->name('showblog');
 
 //Route::get('usuarios', [ 'as' => 'usuarios', 'uses' => 'UsuariosController@index']);
 //Route::get('setting', [ 'as' => 'setting', 'uses' => 'UsuariosController@setting']);
@@ -36,6 +35,7 @@ Route::get('datostudisticos', [ 'as' => 'datostudisticos', 'uses' => 'Lugarestur
 
 Route::get('/blogshome', 'HomeController@blog')->name('blogshome');
 Route::group(['middleware' =>[ 'auth']], function() {
+    Route::get('/showblog/{id}', 'HomeController@showblog')->name('showblog');
     Route::resource('blog', 'BlogController');
     Route::get('setting', [ 'as' => 'setting', 'uses' => 'UsuariosController@setting']);
     Route::resource('comentario','ComentarioController');

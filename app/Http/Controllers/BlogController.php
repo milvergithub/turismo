@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use MediaUploader;
 use Yajra\Datatables\Datatables;
-
+use Lang;
 class BlogController extends Controller
 {
     /**
@@ -27,9 +27,14 @@ class BlogController extends Controller
 
         return Datatables::of(Blog::query())
             ->addColumn('action', function ($user) {
-                return '<a href="/blogs/delete/'.$user->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-trash"></i> Borrar</a>';
+                return $this->getButtonUrl($user);
             })
             ->make(true);
+    }
+    private function getButtonUrl($user): string
+    {
+        $delete = Lang::get('resource.delete');
+        return '<a href="/blogs/delete/'.$user->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-trash"></i> '.$delete.'</a>';
     }
 
     public function blogs()

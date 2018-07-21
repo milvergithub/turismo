@@ -48,10 +48,10 @@ class LugaresturisticosController extends Controller
                 return
 
                     // edit
-                    '<a href="'. route('lugaresturisticos.edit', $lugar->id) .'" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit </a> '.
+                    '<a href="'. route('lugaresturisticos.edit', $lugar->id) .'" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> '.Lang::get('resource.edit').' </a> '.
 
-                    '<a href="'. route('lugaresturisticos.show', $lugar->id) .'" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Agregar Fotos"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Mostrar</a> '.
-                    '<a href="'. route('fotos.create',['id' => $lugar->id ]) .'" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Agregar Fotos"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Agregar Fotos</a> '
+                    '<a href="'. route('lugaresturisticos.show', $lugar->id) .'" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Agregar Fotos"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>'.Lang::get('resource.show').'</a> '.
+                    '<a href="'. route('fotos.create',['id' => $lugar->id ]) .'" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Agregar Fotos"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>'.Lang::get('resource.addpicture').'</a> '
                  ;     })
             ->make(true);
     }

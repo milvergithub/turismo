@@ -12,6 +12,10 @@ return [
     'email' => 'Correo electronico',
     'gender' => 'Genero',
 
+    'edit' => 'Editar',
+    'delete' => 'Eliminar',
+    'show'=> 'Mostrar',
+    'addpicture'=> 'Agregar Fotos',
     'new' => 'Nuevo',
     'save' => 'Guardar',
     'update' => 'Actualizar',

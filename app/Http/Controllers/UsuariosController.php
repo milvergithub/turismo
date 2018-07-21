@@ -11,6 +11,7 @@ use App\User;
 use App\Http\Requests\UserRequest;
 use App\Notificacion;
 use Illuminate\Support\Facades\Auth;
+use Lang;
 class UsuariosController extends Controller
 {
     public function index()
@@ -41,9 +42,18 @@ class UsuariosController extends Controller
             ->addColumn('action', function ($user) {
                 if (User::getCurrentSession()->id === $user->id)
                     return;
-                return '<a href="'.route('usuario.edit',$user->id).'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+                /**
+                 * @param $user
+                 * @return string
+                 */
+                return $this->getButtonUrl($user);
             })
             ->make(true);
+    }
+    private function getButtonUrl($user): string
+    {
+        $edit = Lang::get('resource.edit');
+        return '<a href="' . route('usuario.edit', $user->id) . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> '.$edit.'</a>';
     }
 
     public function usuarios()

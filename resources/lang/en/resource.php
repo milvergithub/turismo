@@ -12,6 +12,10 @@ return [
     'email' => 'Email',
     'gender' => 'Gender',
 
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'show'=> 'Show',
+    'addpicture'=> 'Add pictures',
     'new' => 'New',
     'save' => 'Save',
     'update' => 'Update',
