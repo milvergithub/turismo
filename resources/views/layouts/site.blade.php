@@ -19,12 +19,14 @@
     <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <script src="{{ asset('js/jquery.blockUI.js') }}"></script>
     <script src="{{ asset('js/fileinput.min.js') }}"></script>
     <script src="{{ asset('js/funtion.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <!---->
     <link href="{{ asset('/dropzone/dropzone.css') }}" rel="stylesheet">
     <script src="{{ asset('/dropzone/dropzone.js') }}"></script>
+    @stack('scriptshead')
 </head>
 <body>
 <div>

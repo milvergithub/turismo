@@ -23,7 +23,8 @@
                                 <div class="carousel-inner" role="listbox">
                                     @foreach($fotoLugares as $fotolugar)
                                         <div class="item {{ $yourVar }}">
-                                            <img src="{{$fotolugar->getUrl()}}" class="img img-responsive" width="100%" alt="...">
+                                            <img src="{{$fotolugar->getUrl()}}" class="img img-responsive" width="100%"
+                                                 alt="...">
                                             <div class="carousel-caption">
                                             </div>
                                         </div>
@@ -51,8 +52,11 @@
                     </div>
                     <div class="form-group{{  $errors->first('descripcion') ? ' has-error' : '' }}">
                         {{$model->descripcion}}
+                        <input type="text" id="placeLugarId" value="{{$model->id}}">
                     </div>
                     <div class="form-group">
+                        <button class="helpbutton" id="visitPlaceButton"><span
+                                    class="glyphicon glyphicon-road"></span> @lang('resource.visit')</button>
                     </div>
                 </div>
             </div>
@@ -62,6 +66,34 @@
 @endsection
 
 @push('scripts')
-    {!! Mapper::renderJavascript(); !!}
+    <script>
+        $('#visitPlaceButton').click(function () {
+            if (navigator.geolocation) {
+                $.blockUI({
+                    css: {
+                        border: 'none'
+                    },
+                    message: `
+                    <div class="preloader">
+                        <div class="loader">
+                            <div class="loader1">
+                                <div class="loader2">
+                                    <div class="loader3">
+                                        <div class="loader4"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    `
+                });
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    window.location = '/roadmap/' + $('#placeLugarId').val() + '/latitude/' + position.coords.latitude + '/longitude/' + position.coords.longitude;
+                }, function () {
+                    alert('ERROR...')
+                });
+            }
+        });
+    </script>
 @endpush
 

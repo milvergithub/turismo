@@ -24,6 +24,7 @@ Route::get('/lugares', 'HomeController@lugares')->name('lugares');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/show/{id}', 'HomeController@show')->name('show');
+Route::get('/roadmap/{id}/latitude/{lat}/longitude/{long}', 'HomeController@showRoadMap');
 
 //Route::get('usuarios', [ 'as' => 'usuarios', 'uses' => 'UsuariosController@index']);
 //Route::get('setting', [ 'as' => 'setting', 'uses' => 'UsuariosController@setting']);

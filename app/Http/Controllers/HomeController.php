@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Mapper;
 use DB;
 use GoogleMaps;
+use FarhanWazir\GoogleMaps\GMaps;
 
 class HomeController extends Controller
 {
@@ -19,9 +20,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        // $this->middleware('auth');
+    protected $gmap;
+
+    public function __construct(GMaps $gmap){
+        $this->gmap = $gmap;
     }
 
     /**
@@ -64,6 +66,25 @@ class HomeController extends Controller
             'contadoractive' => $contadoractive, 'contador' => $contador,
 
         ]);
+    }
+
+    public function showRoadMap($id, $lat, $long)
+    {
+        $model = LugarTuristico::find($id);
+        $center = $model->latitud.', '.$model->longitud;
+
+        $config['center'] = $center;
+        $config['zoom'] = '14';
+        $config['map_height'] = '500px';
+        $config['language'] = App::getLocale();
+        $config['directions'] = true;
+        $config['directionsStart'] = $lat.','.$long;
+        $config['directionsEnd'] = $center;
+        $config['directionsDivID'] =  'directionsDiv';
+
+        $this->gmap->initialize($config);
+        $map = $this->gmap->create_map();
+        return view('show-roadmap')->with(['model' => $model, 'map' => $map]);
     }
 
     public function showblog($id)

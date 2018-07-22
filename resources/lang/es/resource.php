@@ -12,6 +12,8 @@ return [
     'email' => 'Correo electronico',
     'gender' => 'Genero',
 
+    'visit' => 'Visitar lugar',
+    'return' =>'Volver',
     'edit' => 'Editar',
     'delete' => 'Eliminar',
     'show'=> 'Mostrar',

@@ -12,6 +12,8 @@ return [
     'email' => 'Email',
     'gender' => 'Gender',
 
+    'visit' => 'Visit place',
+    'return' =>'back',
     'edit' => 'Edit',
     'delete' => 'Delete',
     'show'=> 'Show',
