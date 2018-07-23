@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('latitud') ? ' has-error' : '' }}">
-                        {!! Form::hidden('latitud',$model->nombre, ['class'=>'form-control','placeholder'=>'latitud', 'id' => 'latitud']) !!}
+                        {!! Form::hidden('latitud',$model->latitud, ['class'=>'form-control','placeholder'=>'latitud', 'id' => 'latitud']) !!}
                         @if ($errors->has('latitud'))
                             <span class="help-block">
                                         <strong>{{ $errors->first('latitud') }}</strong>

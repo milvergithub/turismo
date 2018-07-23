@@ -142,7 +142,7 @@ class LugaresturisticosController extends Controller
     }
 
 
-    public function storeGuest(Request $request)
+    public function storeGuest(LugarturisticoRequest $request)
     {
 
         $lugarTuristico = new LugarTuristico($request->all());

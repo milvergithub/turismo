@@ -52,7 +52,7 @@ Route::group(['middleware' =>[ 'auth', 'role:admin']], function() {
 });
 //create-lugar-turistico
 Route::group(['middleware' =>['permission:create-lugar-turistico']], function() {
-    Route::get('lugares/turisticos/create','LugaresturisticosController@createGuest');
+    Route::get('lugares/turisticos/create','LugaresturisticosController@createGuest')->name('lugares.createGuest');
     Route::post('lugares/turisticos/store','LugaresturisticosController@storeGuest')->name('lugares.storeGuest');
 });
 

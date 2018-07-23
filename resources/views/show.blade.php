@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-group{{  $errors->first('descripcion') ? ' has-error' : '' }}">
                         {{$model->descripcion}}
-                        <input type="text" id="placeLugarId" value="{{$model->id}}">
+                        <input type="hidden" id="placeLugarId" value="{{$model->id}}">
                     </div>
                     <div class="form-group">
                         <button class="helpbutton" id="visitPlaceButton"><span

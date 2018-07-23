@@ -15,23 +15,22 @@
                                     </span>
                     @endif
                 </div>
-
-                <div class="form-group{{ $errors->has('latitud') ? ' has-error' : '' }}">
-                    {!! Form::hidden('latitud',$model->nombre, ['class'=>'form-control','placeholder'=>'latitud', 'id' => 'latitud']) !!}
-                    @if ($errors->has('latitud'))
+                <div class="form-group{{ $errors->has('nombre_es') ? ' has-error' : '' }}">
+                    {!!  htmlspecialchars_decode( Form::label('nombre_es','Nombre (es): ') )!!}
+                    {!! Form::text('nombre_es',$model->nombre, ['class'=>'form-control','placeholder'=>'nombre']) !!}
+                    @if ($errors->has('nombre'))
                         <span class="help-block">
-                                        <strong>{{ $errors->first('latitud') }}</strong>
+                                        <strong>{{ $errors->first('nombre_es') }}</strong>
                                     </span>
                     @endif
                 </div>
 
+                <div class="form-group{{ $errors->has('latitud') ? ' has-error' : '' }}">
+                    {!! Form::hidden('latitud',$model->latitud, ['class'=>'form-control', 'id' => 'latitud']) !!}
+                </div>
+
                 <div class="form-group{{ $errors->has('longitud') ? ' has-error' : '' }}">
-                    {!! Form::hidden('longitud',$model->longitud, ['class'=>'form-control','placeholder'=>'longitud','id' => 'longitud']) !!}
-                    @if ($errors->has('longitud'))
-                        <span class="help-block">
-                                        <strong>{{ $errors->first('longitud') }}</strong>
-                                    </span>
-                    @endif
+                    {!! Form::hidden('longitud',$model->longitud, ['class'=>'form-control','id' => 'longitud']) !!}
                 </div>
                 <div class="form-group">
                     <input id="pac-input" class="form-control" type="text"
@@ -53,6 +52,15 @@
                     @if ($errors->has('descripcion'))
                         <span class="help-block">
                                         <strong>{{ $errors->first('descripcion') }}</strong>
+                                    </span>
+                    @endif
+                </div>
+                <div class="form-group{{  $errors->first('descripcion_es') ? ' has-error' : '' }}">
+                    {!!  htmlspecialchars_decode( Form::label('descripcion_es','Descripcion (es): ') )!!}
+                    {!! Form::textarea('descripcion_es',$model->descripcion, ['class'=>'form-control','placeholder'=>'Descripcion']) !!}
+                    @if ($errors->has('descripcion_es'))
+                        <span class="help-block">
+                                        <strong>{{ $errors->first('descripcion_es') }}</strong>
                                     </span>
                     @endif
                 </div>

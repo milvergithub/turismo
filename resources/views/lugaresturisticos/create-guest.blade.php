@@ -1,5 +1,8 @@
 @extends('layouts.site')
-
+@push('scripts')
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8vPUF8KLTt3i839_lF9qoDfdDIlvp7aA&libraries=places&callback=initMap"
+            async defer></script>
+@endpush
 @section('content')
     @include("lugaresturisticos.field")
 
