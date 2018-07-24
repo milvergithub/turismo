@@ -68,18 +68,3 @@ Route::get('lang/{lang}', function ($lang) {
 })->where([
     'lang' => 'en|es'
 ]);
-/**
-
-Route::post('insert-ajax', function() {
-
-    $data = Input::except('_token');
-    DB::table('tbl_posts')->insert($data);
-
-    //Fetch the last record inserted
-    $id=DB::getPdo()->lastInsertId();
-
-    $inserted_data = DB::table('tbl_posts')->where('id',$id)->first();
-    return Response::json(['success'=>$inserted_data]);
-
-});
- * */

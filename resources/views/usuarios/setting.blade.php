@@ -6,50 +6,57 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Editar cuenta {!! $model->nombre_usuario !!}</div>
 
-                <div class="panel-body">
-                    {!! Form::open( ['route' => ['usuario.update',$model],'method' =>'PUT']) !!}
+                <div class="panel-body col-sm-10 col-sm-offset-1">
+                    {!! Form::open( ['route' => ['usuario.update',$model],'method' =>'PUT', 'class' => 'form-horizontal']) !!}
 
                     <div class="form-group{{ $errors->has('nombre_usuario') ? ' has-error' : '' }}">
-                        {!!  htmlspecialchars_decode( Form::label('nombre','Nombre : <span class=" fa fa-asterisk  colorspan"></span>') )!!}
-                        {!! Form::text('nombre_usuario',$model->nombre_usuario, ['class'=>'form-control','placeholder'=>'nombre']) !!}
-                        @if ($errors->has('nombre_usuario'))
-                            <span class="help-block">
+                        <label for="nombre" class="control-label col-sm-4">@lang('resource.name')</label>
+                        <div class="col-sm-8">
+                            {!! Form::text('nombre_usuario',$model->nombre_usuario, ['class'=>'form-control','placeholder'=>'nombre']) !!}
+                            @if ($errors->has('nombre_usuario'))
+                                <span class="help-block">
                                         <strong>{{ $errors->first('nombre_usuario') }}</strong>
                                     </span>
-                        @endif
+                            @endif
+                        </div>
                     </div>
 
                     <div class="form-group">
-                        {!!  Form::label('Apellidos','Apellido Paterno ') !!}
-                        {!! Form::text('apellido_paterno',$model->apellido_paterno, ['class'=>'form-control','placeholder'=>'Apellido paterno']) !!}
-
+                        <label for="apellido_paterno" class="control-label col-sm-4">@lang('resource.lastname')</label>
+                        <div class="col-sm-8">
+                            {!! Form::text('apellido_paterno',$model->apellido_paterno, ['class'=>'form-control','placeholder'=>'Apellido paterno']) !!}
+                        </div>
                     </div>
 
                     <div class="form-group{{  $errors->first('email') ? ' has-error' : '' }}" >
-                        {!!  htmlspecialchars_decode( Form::label('nombre','Email : <span class=" fa fa-asterisk  colorspan"></span>') )!!}
-                        {!! Form::text('email',$model->email, ['class'=>'form-control','placeholder'=>'ejemplo@gmail.com']) !!}
-                        @if ($errors->has('email'))
-                            <span class="help-block">
+                        <label for="email" class="control-label col-sm-4">@lang('resource.email')</label>
+                        <div class="col-sm-8">
+                            {!! Form::text('email',$model->email, ['class'=>'form-control','placeholder'=>'ejemplo@gmail.com']) !!}
+                            @if ($errors->has('email'))
+                                <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                        @endif
+                            @endif
+                        </div>
                     </div>
 
                     <div class="form-group">
-
-                        {{ Form::label('Genero', 'Genero') }}
-                        {{ Form::select('genero', \App\User::getGeneros(),$model->genero,
+                        <label for="genero" class="control-label col-sm-4">@lang('resource.gender')</label>
+                        <div class="col-sm-8">
+                            {{ Form::select('genero', \App\User::getGeneros(),$model->genero,
                             array(  'class' => 'chosen-select form-control',
                                     'data-placeholder' => ' .. Selecciona...',
                                     'tabindex' => '2',
                                     'id'=>'genero'
                             ))
                         }}
+                        </div>
                     </div>
 
                     <div class="form-group">
-
-                        {!! Form::submit('Registrar',['class' => 'btn btn-primary']) !!}
+                        <div class="col-sm-12">
+                            <button class="btn btn-primary pull-right" type="submit">@lang('resource.update')</button>
+                        </div>
                     </div>
                     {!! Form::close() !!}
 
