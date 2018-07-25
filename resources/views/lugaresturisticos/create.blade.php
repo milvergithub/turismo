@@ -89,50 +89,35 @@
     <script>
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: -33.8688, lng: 151.2195},
+                center: {lat:  -17.3937938, lng: -66.15696059999999},
                 zoom: 13
             });
-            var input = /** @type {!HTMLInputElement} */(
-                document.getElementById('pac-input'));
-
-
+            var input = (document.getElementById('pac-input'));
             var autocomplete = new google.maps.places.Autocomplete(input);
             autocomplete.bindTo('bounds', map);
-
             var infowindow = new google.maps.InfoWindow();
             var marker = new google.maps.Marker({
                 map: map,
                 anchorPoint: new google.maps.Point(0, -29)
             });
-
             autocomplete.addListener('place_changed', function () {
                 infowindow.close();
                 marker.setVisible(false);
                 var place = autocomplete.getPlace();
                 if (!place.geometry) {
-// User entered the name of a Place that was not suggested and
-// pressed the Enter key, or the Place Details request failed.
                     window.alert("No details available for input: '" + place.name + "'");
                     return;
                 }
-
-// If the place has a geometry, then present it on a map.
                 if (place.geometry.viewport) {
                     map.fitBounds(place.geometry.viewport);
                 } else {
                     map.setCenter(place.geometry.location);
-                    map.setZoom(17);  // Why 17? Because it looks good.
+                    map.setZoom(17);
                 }
-                marker.setIcon(/** @type {google.maps.Icon} */({
-                    url: place.icon,
-                    size: new google.maps.Size(71, 71),
-                    origin: new google.maps.Point(0, 0),
-                    anchor: new google.maps.Point(17, 34),
-                    scaledSize: new google.maps.Size(35, 35)
-                }));
 
-                $('#latitud').val(place.geometry.location.lat())
-                $('#longitud').val(place.geometry.location.lng())
+                $('#latitud').val(place.geometry.location.lat());
+                $('#longitud').val(place.geometry.location.lng());
+                console.log('place', place.geometry.location);
                 marker.setPosition(place.geometry.location);
                 marker.setVisible(true);
                 var address = '';
@@ -147,9 +132,6 @@
                 infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
                 infowindow.open(map, marker);
             });
-
-            // Sets a listener on a radio button to change the filter type on Places
-            // Autocomplete.
             function setupClickListener(id, types) {
                 var radioButton = document.getElementById(id);
                 radioButton.addEventListener('click', function () {
@@ -157,6 +139,14 @@
                 });
             }
 
+            google.maps.event.addListener(map,'click',function(event) {
+                marker.setPosition(event.latLng);
+                $('#latitud').val(event.latLng.lat());
+                $('#longitud').val(event.latLng.lng());
+            });
+
+            marker.addListener('click', function(event) {
+            });
         }
     </script>
 
