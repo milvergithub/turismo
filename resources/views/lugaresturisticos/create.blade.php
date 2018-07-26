@@ -87,6 +87,8 @@
 @push('scripts')
 
     <script>
+        var ICON_RED = '{!! asset('/img/map-red.png') !!}';
+        var ICON_GREEN = '{!! asset('/img/map-green.png') !!}';
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat:  -17.3937938, lng: -66.15696059999999},
@@ -98,7 +100,8 @@
             var infowindow = new google.maps.InfoWindow();
             var marker = new google.maps.Marker({
                 map: map,
-                anchorPoint: new google.maps.Point(0, -29)
+                anchorPoint: new google.maps.Point(0, -29),
+                icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
             });
             autocomplete.addListener('place_changed', function () {
                 infowindow.close();
@@ -114,10 +117,9 @@
                     map.setCenter(place.geometry.location);
                     map.setZoom(17);
                 }
-
+                streetViewAvailable(place.geometry.location);
                 $('#latitud').val(place.geometry.location.lat());
                 $('#longitud').val(place.geometry.location.lng());
-                console.log('place', place.geometry.location);
                 marker.setPosition(place.geometry.location);
                 marker.setVisible(true);
                 var address = '';
@@ -139,7 +141,24 @@
                 });
             }
 
+            function streetViewAvailable(latLng) {
+                var gstService = new google.maps.StreetViewService();
+                gstService.getPanorama({
+                    location: latLng,
+                    source: google.maps.StreetViewSource.OUTDOOR
+                }, function (data, status) {
+                    if (status === google.maps.StreetViewStatus.OK) {
+                        console.log('STREET_VIEW');
+                        marker.setIcon(ICON_GREEN)
+                    } else {
+                        console.log('NO_STREET_VIEW');
+                        marker.setIcon(ICON_RED)
+                    }
+                });
+            }
+
             google.maps.event.addListener(map,'click',function(event) {
+                streetViewAvailable(event.latLng);
                 marker.setPosition(event.latLng);
                 $('#latitud').val(event.latLng.lat());
                 $('#longitud').val(event.latLng.lng());
