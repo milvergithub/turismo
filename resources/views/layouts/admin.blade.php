@@ -46,7 +46,7 @@
 
             <div class="navigation">
                 <div class="logo">
-                    <h1><a href="index.html">@lang('home.title')</a></h1>
+                    <h1><a href="/">@lang('home.title')</a></h1>
                 </div>
                 <div class="navigation-right">
                     <span class="menu"><img src="{{asset('images/menu.png')}}" alt=" "/></span>

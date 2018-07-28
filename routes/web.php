@@ -40,6 +40,7 @@ Route::group(['middleware' =>[ 'auth']], function() {
     Route::resource('blog', 'BlogController');
     Route::get('setting', [ 'as' => 'setting', 'uses' => 'UsuariosController@setting']);
     Route::resource('comentario','ComentarioController');
+    Route::resource('messagecontact','MessageContactController');
 });
 
 Route::group(['middleware' =>[ 'auth', 'role:admin']], function() {

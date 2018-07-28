@@ -138,7 +138,6 @@ class HomeController extends Controller
 
     public function contact()
     {
-        $model = LugarTuristico::all()->first();
-        return view('contact')->with(['model' => $model]);
+        return view('message.create');
     }
 }
