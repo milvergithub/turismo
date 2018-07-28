@@ -6,6 +6,7 @@ return [
     'about' => 'About Us',
     'place' => 'Place',
     'blog' => 'Blog',
+    'messages' => 'Messages',
     'contact'=> 'Contact',
     'login' => 'Login',
     'logout' => 'Logout',

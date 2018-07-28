@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MessageContactRequest;
 use App\MessageContact;
 use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
 
 class MessageContactController extends Controller
 {
@@ -16,6 +17,7 @@ class MessageContactController extends Controller
     public function index()
     {
         //
+        return view('message.index');
     }
 
     /**
@@ -23,6 +25,12 @@ class MessageContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function data()
+    {
+        return Datatables::of(MessageContact::query())
+            ->make(true);
+    }
     public function create()
     {
         //

@@ -6,6 +6,7 @@ return [
     'about' => 'Sobre Nosotros',
     'place' => 'Lugares',
     'blog' => 'Blog',
+    'messages' => 'Mensajes',
     'contact'=> 'Contactenos',
     'login' => 'Iniciar Session',
     'logout' => 'Salir',

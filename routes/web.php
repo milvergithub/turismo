@@ -30,6 +30,7 @@ Route::get('/roadmap/{id}/latitude/{lat}/longitude/{long}', 'HomeController@show
 //Route::get('setting', [ 'as' => 'setting', 'uses' => 'UsuariosController@setting']);
 Route::get('datos', [ 'as' => 'datos', 'uses' => 'UsuariosController@data']);
 Route::get('datostudisticos', [ 'as' => 'datostudisticos', 'uses' => 'LugaresturisticosController@data']);
+Route::get('datosmessages', [ 'as' => 'datosmessages', 'uses' => 'MessageContactController@data']);
 //Route::resource('usuario','UsuariosController');
 //['except' => ['getActivate', 'anotherMethod']]
 

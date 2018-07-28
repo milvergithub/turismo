@@ -108,6 +108,13 @@
                                           class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('messagecontact.index') }}">
+                                    @lang('home.messages')
+                                    <span style="font-size:16px;"
+                                          class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
