@@ -24,5 +24,10 @@ return [
     'send' => 'Enviar',
     'aboutus' => 'Acerca de Nosotros',
     'road' => 'El Camino Real',
-    'copyright' => '2016 Roasting. Todo los Derechos reservados'
+    'copyright' => '2016 Roasting. Todo los Derechos reservados',
+
+    'yourmessage' => 'Tu mensaje',
+    'phone' => 'Telefono',
+    'subject' => 'Asunto',
+    'message' => 'Mensaje',
 ];

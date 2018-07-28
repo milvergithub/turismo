@@ -24,5 +24,10 @@ return [
     'send' => 'Send',
     'aboutus' => 'About us',
     'road' => 'The road',
-    'copyright' => '2016 Roasting. All rights reserved'
+    'copyright' => '2016 Roasting. All rights reserved',
+
+    'yourmessage' => 'Your message',
+    'phone' => 'Phone',
+    'subject' => 'Subject',
+    'message' => 'Message',
 ];
