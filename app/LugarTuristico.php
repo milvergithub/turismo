@@ -24,4 +24,9 @@ class LugarTuristico extends Model
     public static function getEstados() {
         return ['ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO', 'PENDIENTE' => 'PENDIENTE'];
     }
+
+    public static function getAvailables($size = 5) {
+        return LugarTuristico::where('estado', 'ACTIVO')
+            ->paginate($size);
+    }
 }

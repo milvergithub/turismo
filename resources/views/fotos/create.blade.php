@@ -48,9 +48,28 @@
                 myDropzone = this;
 
                 submitBtn.addEventListener("click", function(e){
+                    $.blockUI({
+                        css: {
+                            border: 'none'
+                        },
+                        message: `
+                    <div class="preloader">
+                        <div class="loader">
+                            <div class="loader1">
+                                <div class="loader2">
+                                    <div class="loader3">
+                                        <div class="loader4"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    `
+                    });
                     e.preventDefault();
                     e.stopPropagation();
                     myDropzone.processQueue();
+                    $.unblockUI();
                 });
                 this.on("addedfile", function(file) {
                    // alert("file uploaded");s

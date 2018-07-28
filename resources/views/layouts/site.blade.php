@@ -20,7 +20,10 @@
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="{{ asset('js/jquery.blockUI.js') }}"></script>
-    <script src="{{ asset('js/fileinput.min.js') }}"></script>
+    <script src="{{ asset('js/fileinput.js') }}"></script>
+    @if(App::getLocale() === 'es')
+        <script src="{{ asset('js/locales/es.js') }}"></script>
+    @endif
     <script src="{{ asset('js/funtion.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <!---->

@@ -27,7 +27,7 @@
                         <div class="clearfix"></div>
                     </div>
                 @endforeach
-
+                {!!$model->render()!!}
             </div>
         </div>
         <!--services-->

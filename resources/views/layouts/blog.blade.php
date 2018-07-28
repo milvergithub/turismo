@@ -21,7 +21,10 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/funtion.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('js/fileinput.min.js') }}"></script>
+    <script src="{{ asset('js/fileinput.js') }}"></script>
+    @if(App::getLocale() === 'es')
+        <script src="{{ asset('js/locales/es.js') }}"></script>
+    @endif
     <!---->
     <link href="{{ asset('/dropzone/dropzone.css') }}" rel="stylesheet">
     <script src="{{ asset('/dropzone/dropzone.js') }}"></script>
@@ -44,7 +47,7 @@
                     <h1><a href="index.html">@lang('home.title')</a></h1>
                 </div>
                 <div class="navigation-right">
-                    <span class="menu"><img src="images/menu.png" alt=" " /></span>
+                    <span class="menu"><img src="{{asset('images/menu.png')}}" alt=" " /></span>
                     <nav class="link-effect-3" id="link-effect-3">
                       @include('layouts.submenu')
                     </nav>
@@ -119,7 +122,5 @@
 @yield('footer')
 <!--copy-->
 @stack('scripts')
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8vPUF8KLTt3i839_lF9qoDfdDIlvp7aA&libraries=places&callback=initMap"
-        async defer></script>
 </body>
 </html>

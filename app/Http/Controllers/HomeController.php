@@ -106,19 +106,15 @@ class HomeController extends Controller
 
     public function lugares()
     {
-        $lugares = LugarTuristico::all();
-        $data = [];
+        $lugares = LugarTuristico::getAvailables();
         foreach ($lugares as $lugar) {
             if (App::getLocale() === 'es') {
                 $lugar->nombre = $lugar->nombre_es;
                 $lugar->descripcion = $lugar->descripcion_es;
             }
-            if ($lugar->estado === LugarTuristico::ESTADO_ACTIVO) {
-                $data[] = $lugar;
-            }
         }
 
-        return view('lugares')->with(['model' => $data]);
+        return view('lugares')->with(['model' => $lugares]);
     }
 
     public function blog()
