@@ -18,6 +18,8 @@
 
     <link href="{{ asset('css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/responsive.bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fileinput.css') }}" rel="stylesheet">
+
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/jquery.blockUI.js') }}"></script>
@@ -27,6 +29,10 @@
     <script src="{{ asset('js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('js/responsive.bootstrap.min.js') }}"></script>
     <!---->
+    <script src="{{ asset('js/fileinput.js') }}"></script>
+    @if(App::getLocale() === 'es')
+        <script src="{{ asset('js/locales/es.js') }}"></script>
+    @endif
     <link href="{{ asset('/dropzone/dropzone.css') }}" rel="stylesheet">
     <script src="{{ asset('/dropzone/dropzone.js') }}"></script>
     @stack('scriptshead')
