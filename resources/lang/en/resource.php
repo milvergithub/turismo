@@ -22,6 +22,7 @@ return [
     'save' => 'Save',
     'update' => 'Update',
     'send' => 'Send',
+    'status' => 'Status',
     'aboutus' => 'About us',
     'road' => 'The road',
     'copyright' => '2016 Roasting. All rights reserved',

@@ -12,6 +12,7 @@
                         <tr>
                             <th width="5%">@lang('resource.id')</th>
                             <th>@lang('resource.name')</th>
+                            <th>@lang('resource.status')</th>
                             <th>@lang('resource.subject')</th>
                             <th>@lang('resource.phone')</th>
                             <th>@lang('resource.message')</th>
@@ -38,6 +39,7 @@
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'name', name: 'name' },
+                    { data: 'status', name: 'status' },
                     { data: 'subject', name: 'subject' },
                     {data: 'phone', name: 'phone'},
                     {data: 'message', name: 'message'},

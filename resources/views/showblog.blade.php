@@ -8,44 +8,51 @@
                 <div class="panel-heading">@lang('place.showblog') </div>
 
                 <div class="panel-body">
-                    {!! Form::open( ['route' => ['lugaresturisticos.store',$model],'method' =>'POST']) !!}
-
-
-                    <div class="form-group" style="width: 100%; height: 30%;">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                @foreach($model->getMedia($model::TAG_PICTURE) as $fotoblog)
-                                    <li data-target="#carousel-example-generic" data-slide-to="{{$contador}}" class="{{$contadoractive}}"></li>
-                                @endforeach
-
-                            </ol>
-
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner" role="listbox">
-                                @foreach($model->getMedia($model::TAG_PICTURE) as $fotoblog)
-                                    <div class="item {{ $yourVar }}">
-                                        <img src="{{$fotoblog->getUrl()}}" alt="..." class="img img-responsive" width="100%">
-                                        <div class="carousel-caption">
-                                        </div>
-                                    </div>
-                                    {{ $yourVar = '' }}
-                                @endforeach
-                            </div>
-
-                            <!-- Controls -->
-                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
+                    <div class="service-grid ser-bottom">
+                        @if(App::getLocale() === 'es')
+                            <h4>{{$model->nombre_es}}</h4>
+                        @else
+                            <h4>{{$model->nombre}}</h4>
+                        @endif
                     </div>
-                    {!! Form::close() !!}
-                                <!-- Div with an id to display success message or failed message -->
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            @foreach($model->getMedia($model::TAG_PICTURE) as $fotoblog)
+                                <li data-target="#carousel-example-generic" data-slide-to="{{$contador}}" class="{{$contadoractive}}"></li>
+                            @endforeach
+
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            @foreach($model->getMedia($model::TAG_PICTURE) as $fotoblog)
+                                <div class="item {{ $yourVar }}">
+                                    <img src="{{$fotoblog->getUrl()}}" alt="..." class="img img-responsive" width="100%">
+                                    <div class="carousel-caption">
+                                    </div>
+                                </div>
+                                {{ $yourVar = '' }}
+                            @endforeach
+                        </div>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div>
+                        @if(App::getLocale() === 'es')
+                            {{$model->descripcion_es}}
+                        @else
+                            {{$model->descripcion}}
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>

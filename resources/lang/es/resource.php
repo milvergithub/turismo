@@ -22,6 +22,7 @@ return [
     'save' => 'Guardar',
     'update' => 'Actualizar',
     'send' => 'Enviar',
+    'status' => 'Estado',
     'aboutus' => 'Acerca de Nosotros',
     'road' => 'El Camino Real',
     'copyright' => '2016 Roasting. Todo los Derechos reservados',

@@ -18,6 +18,7 @@ class CreateMessageContactsTable extends Migration
             $table->string('name');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->string('status')->nullable();
             $table->string('phone');
             $table->string('subject');
             $table->string('message');

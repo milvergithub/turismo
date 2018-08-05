@@ -18,4 +18,27 @@ class Blog extends Model
         'nombre', 'nombre_es', 'descripcion', 'descripcion_es', 'fecha','usuario_id'
     ];
     const TAG_PICTURE = 'foto-blog';
+
+    public static function rulesSpanish() {
+        return [
+            'nombre_es' => 'required',
+            'descripcion_es'  => 'required',
+        ];
+    }
+
+    public static function rulesEnglish() {
+        return [
+            'nombre' => 'required',
+            'descripcion'  => 'required',
+        ];
+    }
+
+    public static function rules() {
+        return [
+            'nombre' => 'required',
+            'descripcion'  => 'required',
+            'nombre_es' => 'required',
+            'descripcion_es'  => 'required',
+        ];
+    }
 }

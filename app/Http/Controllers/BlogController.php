@@ -34,7 +34,9 @@ class BlogController extends Controller
     private function getButtonUrl($user): string
     {
         $delete = Lang::get('resource.delete');
-        return '<a href="/blogs/delete/'.$user->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-trash"></i> '.$delete.'</a>';
+        $edit = Lang::get('resource.edit');
+        return '<a href="/blog/'.$user->id.'/edit" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-pencil"></i> '.$edit.'</a> 
+                <a href="/blogs/delete/'.$user->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-trash"></i> '.$delete.'</a>';
     }
 
     public function blogs()
@@ -59,8 +61,13 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BlogRequest $request)
+    public function store(Request $request)
     {
+        $rules = Blog::rulesEnglish();
+        if (App::getLocale() === 'es') {
+            $rules = Blog::rulesSpanish();
+        }
+        $request->validate($rules);
         $blog = new Blog($request->all());
 
         $blog->usuario_id = User::getCurrentSession()->id;
@@ -97,7 +104,8 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        //
+        $model = Blog::find($id);
+        return view('blog.edit')->with(['blog'=>$model]);
     }
 
     /**
@@ -109,7 +117,11 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(Blog::rules());
+        $blog = Blog::find($id);
+        $blog->fill($request->all());
+        $blog->save();
+        return redirect()->route('blog.index');
     }
 
     /**
