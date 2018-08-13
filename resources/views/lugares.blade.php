@@ -3,7 +3,7 @@
 @section('content')
     <div class="content">
         <!--services-->
-        <div class="services-agile">
+        <div class="services-agil">
             <div class="container">
                 <h2 class="tittle">@lang('place.places')</h2>
                 <div class="form-group">

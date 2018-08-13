@@ -1,7 +1,7 @@
 @extends('layouts.site')
 @section('content')
     <div class="content">
-        <div class="services-agile">
+        <div class="services-agil">
             <div class="container">
                 <h2 class="tittle">Blog</h2>
                 <a href="{{ route('blog.create') }}" class="btn btn-info"> @lang('resource.new')</a>
