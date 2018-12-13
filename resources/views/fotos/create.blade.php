@@ -9,8 +9,8 @@
                 <div class="panel-body">
 
                     <div class="jumbotron how-to-create" >
-
-
+                        <div id="message-success">
+                        </div>
                         {!! Form::open(['route'=>  [ 'fotos.store',null ], 'method' => 'POST', 'files'=>'true', 'id' => 'my-dropzone' , 'class' => 'dropzone']) !!}
                         <div class="dz-message" style="height:200px;">
                             @lang('messages.dropzonemessage')
@@ -79,9 +79,13 @@
                     myDropzone.removeFile(file);
                 });
 
-                this.on("success",
-                    myDropzone.processQueue.bind(myDropzone)
-                );
+                this.on("success", function(data) {
+                    myDropzone.processQueue.bind(myDropzone);
+                    $("#message-success").html("<div class=\"alert alert-success\">El archivo se subio exitosamente</div>");
+                    setTimeout(function () {
+                        $("#message-success").html("");
+                    }, 5000)
+                });
             }
         };
     </script>

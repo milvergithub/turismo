@@ -3,6 +3,9 @@
     <div class="content">
         <div class="services-agil">
             <div class="container">
+                @if (Session::has('message'))
+                    <div class="alert alert-success">{{ Session::get('message') }}</div>
+                @endif
                 <h2 class="tittle">Blog</h2>
                 <a href="{{ route('blog.create') }}" class="btn btn-primary"> @lang('resource.new')</a>
                 @foreach($model as $blog)

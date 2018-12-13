@@ -6,6 +6,9 @@
         <div class="form-group">
             <a href="{{ route('lugaresturisticos.create') }}" class="btn btn-primary"> @lang('resource.new')</a>
         </div>
+        @if (Session::has('message'))
+            <div class="alert alert-success">{{ Session::get('message') }}</div>
+        @endif
         <div class="panel panel-default">
                 <div class="panel-heading">@lang('place.placelist')</div>
 

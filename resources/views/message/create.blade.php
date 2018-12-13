@@ -7,9 +7,8 @@
 
                 <div class="panel-body">
                     @if (Session::has('message'))
-                        <div class="alert alert-info">{{ Session::get('message') }}</div>
+                        <div class="alert alert-success">{{ Session::get('message') }}</div>
                     @endif
-                    <span>Lorem Ipsum is inting and typesetting in simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the is dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
                     {!! Form::open( ['route' => ['messagecontact.store',null],'method' =>'POST']) !!}
 
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
