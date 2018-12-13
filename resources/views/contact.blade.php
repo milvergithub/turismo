@@ -4,7 +4,6 @@
     <div class="contact-grids">
         <div class="col-md-6 contact-grid">
             <h4>@lang('resource.yourmessage')</h4>
-            <span>Lorem Ipsum is inting and typesetting in simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the is dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
             <form action="#" method="post">
                 <div class="form-group">
                     <label class="control-label">@lang('resource.name')</label>

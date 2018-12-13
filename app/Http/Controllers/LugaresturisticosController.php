@@ -137,7 +137,7 @@ class LugaresturisticosController extends Controller
         $lugarTuristico = new LugarTuristico($request->all());
         $lugarTuristico -> estado = LugarTuristico::ESTADO_ACTIVO;
         $lugarTuristico ->save();
-        return redirect()->route('lugaresturisticos.index');
+        return redirect()->route('lugaresturisticos.index')->with('message', 'Se creo exitosamente');
 
     }
 
@@ -155,7 +155,7 @@ class LugaresturisticosController extends Controller
                 $lugarTuristico->attachMedia($media, LugarTuristico::TAG_PICTURE);
             }
         }
-        return redirect()->route('lugares');
+        return redirect()->route('lugares')->with('message', 'Se creo exitosamente');
 
     }
     /**

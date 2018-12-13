@@ -82,7 +82,7 @@ class BlogController extends Controller
               }
 
           }
-        return redirect()->route('blogshome');
+        return redirect()->route('blogshome')->with('message', 'Blog creado exitosamente');
     }
 
     /**
@@ -121,7 +121,7 @@ class BlogController extends Controller
         $blog = Blog::find($id);
         $blog->fill($request->all());
         $blog->save();
-        return redirect()->route('blog.index');
+        return redirect()->route('blog.index')->with('message', 'Blog actualizado exitosamente');
     }
 
     /**

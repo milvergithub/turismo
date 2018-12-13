@@ -45,7 +45,7 @@ class FotosController extends Controller
             $media = MediaUploader::fromSource($file)->useHashForFilename()->upload();
             $lugarTuristico->attachMedia($media, LugarTuristico::TAG_PICTURE);
         }
-        return redirect()->route('lugaresturisticos.index');
+        return redirect()->route('lugaresturisticos.index')->with('message', 'El archivo se subio exitosamnete');
     }
 
     /**
