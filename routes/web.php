@@ -22,7 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/lugares', 'HomeController@lugares')->name('lugares');
 
 Route::get('/about', 'HomeController@about')->name('about');
-Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/show/{id}', 'HomeController@show')->name('show');
 Route::get('/roadmap/{id}/latitude/{lat}/longitude/{long}', 'HomeController@showRoadMap');
 
@@ -37,9 +36,11 @@ Route::get('datosmessages', [ 'as' => 'datosmessages', 'uses' => 'MessageContact
 
 Route::get('/blogshome', 'HomeController@blog')->name('blogshome');
 Route::group(['middleware' =>[ 'auth']], function() {
+    Route::get('/contact', 'HomeController@contact')->name('contact');
     Route::get('/showblog/{id}', 'HomeController@showblog')->name('showblog');
     Route::resource('blog', 'BlogController');
     Route::get('setting', [ 'as' => 'setting', 'uses' => 'UsuariosController@setting']);
+    Route::put('updateuser/{id}', 'UsuariosController@updateData')->name('usuario.updatedata');
     Route::resource('comentario','ComentarioController');
     Route::resource('messagecontact','MessageContactController');
 });

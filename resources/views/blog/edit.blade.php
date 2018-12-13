@@ -54,7 +54,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success">@lang('resource.update')</button>
+                            <button type="submit" class="btn btn-primary">@lang('resource.update')</button>
                         </div>
                         {!! Form::close() !!}
                     </div>

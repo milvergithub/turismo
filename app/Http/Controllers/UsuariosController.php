@@ -92,6 +92,14 @@ class UsuariosController extends Controller
         return redirect()->route('usuario.index');
     }
 
+    public function updateData(UserRequest $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $user->fill($request->all());
+        $user->save();
+        return redirect()->route('home');
+    }
+
     public function setting()
     {
 

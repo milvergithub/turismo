@@ -13,13 +13,13 @@
 
                         {!! Form::open(['route'=>  [ 'fotos.store',null ], 'method' => 'POST', 'files'=>'true', 'id' => 'my-dropzone' , 'class' => 'dropzone']) !!}
                         <div class="dz-message" style="height:200px;">
-                            Suelta tus archivos aquí
+                            @lang('messages.dropzonemessage')
                         </div>
                         <div class="form-group">
                             <div class="dropzone-previews"></div>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success" id="submit">@lang('resource.save')</button>
+                            <button type="submit" class="btn btn-primary" id="submit">@lang('resource.save')</button>
                             {{ Form::hidden('id_lugar', $id_lugar, array('class' => 'form-control')) }}
 
                         </div>

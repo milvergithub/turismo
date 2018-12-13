@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'dropzonemessage' => 'Suelta tus archivos aquí',
+    'dropzonemessage' => 'Arrastre y suelte aquí los archivos &hellip;',
     'login' => [
         'email' => 'Correo electronico',
         'password' => 'Contraseña',

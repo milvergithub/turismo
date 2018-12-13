@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <a href="{{ route('lugaresturisticos.create') }}" class="btn btn-info"> @lang('resource.new')</a>
+        <a href="{{ route('lugaresturisticos.create') }}" class="btn btn-primary"> @lang('resource.new')</a>
         <div class="panel panel-default">
                 <div class="panel-heading">Lista de Lugares Turisticos</div>
 

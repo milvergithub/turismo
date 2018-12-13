@@ -8,7 +8,7 @@
                 <h2 class="tittle">@lang('place.places')</h2>
                 <div class="form-group">
                     @permission('create-lugar-turistico')
-                    <a href="{{ route('lugares.createGuest') }}" class="btn btn-info"> @lang('resource.new')</a>
+                    <a href="{{ route('lugares.createGuest') }}" class="btn btn-primary"> @lang('resource.new')</a>
                     @endpermission
                 </div>
                 @foreach($model as $lugares)

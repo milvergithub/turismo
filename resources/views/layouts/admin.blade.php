@@ -81,6 +81,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-2 col-md-2">
+            @role('admin')
             <nav class="navbar navbar-default sidebar" role="navigation">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -109,7 +110,7 @@
                             </li>
                             <li>
                                 <a href="{{ route('blog.index') }}">
-                                    @lang('home.blog')
+                                    @lang('home.blog')s
                                     <span style="font-size:16px;"
                                           class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span>
                                 </a>
@@ -125,6 +126,7 @@
                     </div>
                 </div>
             </nav>
+            @endrole
         </div>
         <div class="col-sm-10 col-md-10">
             @yield('content')

@@ -7,7 +7,7 @@
                 <div class="panel-heading">Editar cuenta {!! $model->nombre_usuario !!}</div>
 
                 <div class="panel-body col-sm-10 col-sm-offset-1">
-                    {!! Form::open( ['route' => ['usuario.update',$model],'method' =>'PUT', 'class' => 'form-horizontal']) !!}
+                    {!! Form::open( ['route' => ['usuario.updatedata',$model],'method' =>'PUT', 'class' => 'form-horizontal']) !!}
 
                     <div class="form-group{{ $errors->has('nombre_usuario') ? ' has-error' : '' }}">
                         <label for="nombre" class="control-label col-sm-4">@lang('resource.name')</label>

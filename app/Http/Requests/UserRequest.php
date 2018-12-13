@@ -41,17 +41,23 @@ class UserRequest extends FormRequest
             case 'POST':
                 {
                     return [
-                        'user.name.first' => 'required',
-                        'user.name.last'  => 'required',
+                        'user.name.first' => 'required|alpha',
+                        'user.name.last'  => 'required|alpha',
                         'user.email'      => 'required|email|unique:users,email',
                         'user.password'   => 'required|confirmed',
                     ];
                 }
             case 'PUT':
+                {
+                    return [
+                        'nombre_usuario' => 'required|alpha|max:255|unique:users,nombre_usuario,'.$this->route->parameter('usuario'),
+                        'email' => 'required|string|email|max:255|unique:users,email,'.$this->route->parameter('usuario')
+                    ];
+                }
             case 'PATCH':
                 {
                     return [
-                        'nombre_usuario' => 'required|string|max:255|unique:users,nombre_usuario,'.$this->route->parameter('usuario'),
+                        'nombre_usuario' => 'required|alpha|max:255|unique:users,nombre_usuario,'.$this->route->parameter('usuario'),
                         'email' => 'required|string|email|max:255|unique:users,email,'.$this->route->parameter('usuario')
                     ];
                 }

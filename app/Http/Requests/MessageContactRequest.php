@@ -24,7 +24,7 @@ class MessageContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|alpha',
             'user_id' => 'required',
             'subject'  => 'required',
             'message'  => 'required',

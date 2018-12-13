@@ -70,7 +70,7 @@
                             </div>
                         @endif
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success">@lang('resource.save')</button>
+                            <button type="submit" class="btn btn-primary">@lang('resource.save')</button>
                         </div>
                         {!! Form::close() !!}
                     </div>

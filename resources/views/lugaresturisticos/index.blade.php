@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="form-group">
-            <a href="{{ route('lugaresturisticos.create') }}" class="btn btn-info"> @lang('resource.new')</a>
+            <a href="{{ route('lugaresturisticos.create') }}" class="btn btn-primary"> @lang('resource.new')</a>
         </div>
         <div class="panel panel-default">
                 <div class="panel-heading">@lang('place.placelist')</div>

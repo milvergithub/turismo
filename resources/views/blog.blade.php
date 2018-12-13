@@ -4,7 +4,7 @@
         <div class="services-agil">
             <div class="container">
                 <h2 class="tittle">Blog</h2>
-                <a href="{{ route('blog.create') }}" class="btn btn-info"> @lang('resource.new')</a>
+                <a href="{{ route('blog.create') }}" class="btn btn-primary"> @lang('resource.new')</a>
                 @foreach($model as $blog)
                     <div class="service-grids">
                         <div class="col-md-5 service-grid ser-bottom">
