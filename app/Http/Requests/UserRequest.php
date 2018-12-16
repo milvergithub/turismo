@@ -51,6 +51,7 @@ class UserRequest extends FormRequest
                 {
                     return [
                         'nombre_usuario' => 'required|alpha|max:255|unique:users,nombre_usuario,'.$this->route->parameter('usuario'),
+                        'apellido_paterno' => 'alpha',
                         'email' => 'required|string|email|max:255|unique:users,email,'.$this->route->parameter('usuario')
                     ];
                 }

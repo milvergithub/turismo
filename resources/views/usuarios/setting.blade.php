@@ -21,10 +21,15 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group{{ $errors->has('apellido_paterno') ? ' has-error' : '' }}">
                         <label for="apellido_paterno" class="control-label col-sm-4">@lang('resource.lastname')</label>
                         <div class="col-sm-8">
                             {!! Form::text('apellido_paterno',$model->apellido_paterno, ['class'=>'form-control','placeholder'=>'Apellido paterno']) !!}
+                            @if ($errors->has('apellido_paterno'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('apellido_paterno') }}</strong>
+                                    </span>
+                            @endif
                         </div>
                     </div>
 
