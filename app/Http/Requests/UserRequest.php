@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use App\User;
 use Illuminate\Routing\Route;
+use Illuminate\Validation\Rule;
 
 class UserRequest extends FormRequest
 {
@@ -50,9 +51,9 @@ class UserRequest extends FormRequest
             case 'PUT':
                 {
                     return [
-                        'nombre_usuario' => 'required|alpha|max:255|unique:users,nombre_usuario,'.$this->route->parameter('usuario'),
+                        'nombre_usuario' => "required|alpha|max:255|unique:users,nombre_usuario,$this->id,id",
                         'apellido_paterno' => 'alpha',
-                        'email' => 'required|string|email|max:255|unique:users,email,'.$this->route->parameter('usuario')
+                        'email' => "required|unique:users,email,$this->id,id",
                     ];
                 }
             case 'PATCH':
